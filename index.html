@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SitePlan — Look-ahead</title>
+<link rel="stylesheet" href="styles.css"></head><body><div class="app">
+<aside class="sidebar"><div class="brand">◈ SitePlan<small>Construction. In sequence.</small></div><nav class="nav"><button>▦ &nbsp; Overview</button><button class="active">♟ &nbsp; Subcontractors</button><button>↗ &nbsp; Trade links</button><button>▤ &nbsp; Friday issue</button></nav></aside>
+<header class="top"><div class="project"><strong>Belvedere Gardens ⌄</strong><span>Residential Development · 48 Homes · Phase 1</span></div><div class="topright"><input class="searchtop" placeholder="⌕  Search SitePlan..."><span>♧</span><span>JD ⌄</span></div></header>
+<main class="content"><div class="issue"><b>⚠ Friday issue</b><span>16 subcontractors</span><span>12 ready</span><b>3 changed</b><b style="color:#c33">1 needs review</b><button class="btn primary push" onclick="showIssue()">▤ &nbsp; Prepare PDFs</button></div>
+<div class="grid"><section class="panel listpanel"><h2>Subcontractors</h2><input class="filter" id="filter" placeholder="Search subcontractors..." oninput="filterCompanies()"><div class="companies" id="companies"></div></section>
+<section class="panel sched"><div class="schedhead"><div><h1 id="companyTitle">Kerrigan Mechanical</h1><div class="sub">Full project schedule · <span id="taskCount">4</span> work items</div></div><button class="btn" onclick="printCompany()">▤ PDF</button></div><div class="controls"><span class="date">▦ &nbsp; 26 Oct 2026 – 12 Nov 2026</span><button class="btn">☷ List</button><button class="btn">▥ Timeline</button><button class="btn primary" onclick="addTask()">+ Add work</button></div><div id="schedule"></div></section>
+<section class="panel right"><h2>Linked trade sequence</h2><div class="linknote">Date changes update following trades</div><div id="sequence"></div><div class="impact"><b>⚠ &nbsp; 2 subcontractor schedules affected</b>Changes to predecessor tasks move linked work dates automatically.</div><button class="btn footerbtn">↗ &nbsp; View full trade link chain</button></section></div></main></div>
+<div class="overlay" id="overlay"><div class="modal"><h2>Friday issue · PDF schedules</h2><div class="sub">Review each subcontractor schedule before printing or saving.</div><table><thead><tr><th>Subcontractor</th><th>Status</th><th>PDF</th></tr></thead><tbody id="issueRows"></tbody></table><div class="modalactions"><button class="btn" onclick="hideIssue()">Close</button><button class="btn primary" onclick="window.print()">Print schedules</button></div></div></div><div class="toast" id="toast"></div>
+<script src="app.js"></script></body></html>
+
