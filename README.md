@@ -17,9 +17,10 @@ Create a **private** GitHub repository and upload the project files. A static ho
 ## Supabase setup
 
 1. Create a separate Supabase project for SitePlan.
-2. Run `supabase/schema.sql` in its SQL editor.
-3. Add the project's URL and publishable/anon key to `supabase-config.js` (copy from the example). These browser values are intended to be public; never put a service-role or secret key in website code.
-4. Create approved user accounts in Supabase Auth. Disable open sign-ups if only invited users should access the app.
-5. Connect the app's sign-in and schedule screens to the tables, then confirm RLS policies using separate approved and unapproved accounts before using real schedules.
+2. In Authentication settings, turn off public sign-ups. Create the first user in **Authentication → Users**.
+3. Run `supabase/schema.sql` once in the SQL editor.
+4. In `supabase/bootstrap-admin.sql`, replace `REPLACE-WITH-YOUR-LOGIN-EMAIL`, then run it once in the SQL editor. This creates the project and makes that account its admin.
+5. Add the project's URL and publishable key to `supabase-config.js`. Never put a service-role or secret key in website code.
+6. Publish the files over HTTPS. Sign in with the first user, then add other users through Supabase Authentication and the project membership table. Grant `editor` or `viewer` roles as appropriate.
 
-The SQL is an initial schema, not a production-ready migration: review the rules and add project membership management before loading live data. The current prototype does not yet call Supabase; authentication, persistence, dependency recalculation, PDF generation and emailing still need implementation and verification.
+The current app supports email/password sign-in, shared subcontractor/task loading, creating tasks, changing durations, and simple predecessor links that push downstream dates forward using Monday–Friday workdays. It is still an early implementation: it does not yet manage user invitations in the app, prevent every possible dependency cycle, pull downstream dates earlier after shortening work, export separate subcontractor PDFs, or email schedules. Check the policies and test with non-production accounts before using real programme data.
