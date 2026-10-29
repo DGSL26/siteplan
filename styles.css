@@ -48,3 +48,27 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 .right.delay-mode{display:block!important}
 .schedule-table-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
 @media(max-width:800px){.sched{overflow:visible}.schedule-table-scroll{margin:0 -2px;padding-bottom:4px}.task-grid{min-width:790px}}
+.task-grid:not(.has-delay){grid-template-columns:minmax(210px,1.65fr) minmax(120px,.8fr) minmax(120px,.8fr) minmax(90px,.55fr) 68px;gap:8px}
+.task-grid.has-delay{grid-template-columns:minmax(200px,1.5fr) minmax(112px,.78fr) minmax(112px,.78fr) minmax(86px,.52fr) minmax(72px,.42fr) 68px;gap:7px}
+.task-date-stack{display:grid;gap:3px;min-width:0}
+.task-date-stack .actual-date{color:#354b61;font-size:11px;font-weight:550;white-space:nowrap}
+.task-date-stack small{color:#98a3af;font-size:9px;line-height:1.25;white-space:nowrap}
+.schedule-status{display:inline-flex;align-items:center;justify-content:center;min-width:72px;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:650;white-space:nowrap}
+.schedule-status.on-track{background:#e7f6ed;color:#137347}
+.schedule-status.delayed{background:#fdebea;color:#b42318}
+.days-delayed{color:#b42318;font-size:12px;font-weight:750;white-space:nowrap}
+.days-empty{color:#b7c0c8;font-weight:400}
+.task-row{min-height:70px}
+.edit-original-toggle{width:100%;margin-bottom:12px;text-align:left}
+.original-details-fields{display:grid;gap:10px;margin-bottom:14px;padding:13px;border:1px solid var(--line);border-radius:8px;background:#f8fafb}
+.original-details-title{font-size:12px;font-weight:700;color:#43576c}
+.edit-status-label{margin:4px 0 2px}
+.edit-status-label select,.delay-fields select{display:block;width:100%;height:40px;margin-top:5px;padding:0 10px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);font:inherit}
+.delay-fields{display:grid;gap:12px;padding:13px;border:1px solid #f3cfca;border-radius:8px;background:#fff8f7}
+.edit-delay-counter{display:flex;align-items:center;gap:7px;margin-top:5px}
+.edit-delay-counter button{width:36px;height:36px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);font-size:19px;cursor:pointer}
+.edit-delay-counter button:hover{border-color:var(--teal);color:var(--teal)}
+.edit-delay-counter input{width:74px;height:36px;border:1px solid var(--line);border-radius:7px;text-align:center;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink)}
+.edit-delay-counter small{color:var(--muted);font-size:10px}
+@media(max-width:1120px){.task-grid:not(.has-delay){grid-template-columns:minmax(185px,1.5fr) minmax(108px,.8fr) minmax(108px,.8fr) minmax(84px,.55fr) 64px}.task-grid.has-delay{grid-template-columns:minmax(180px,1.4fr) minmax(102px,.78fr) minmax(102px,.78fr) minmax(80px,.52fr) minmax(68px,.42fr) 64px}}
+@media(max-width:800px){.task-grid:not(.has-delay){min-width:690px}.task-grid.has-delay{min-width:760px}}
