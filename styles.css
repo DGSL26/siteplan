@@ -72,3 +72,5 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 .edit-delay-counter small{color:var(--muted);font-size:10px}
 @media(max-width:1120px){.task-grid:not(.has-delay){grid-template-columns:minmax(185px,1.5fr) minmax(108px,.8fr) minmax(108px,.8fr) minmax(84px,.55fr) 64px}.task-grid.has-delay{grid-template-columns:minmax(180px,1.4fr) minmax(102px,.78fr) minmax(102px,.78fr) minmax(80px,.52fr) minmax(68px,.42fr) 64px}}
 @media(max-width:800px){.task-grid:not(.has-delay){min-width:690px}.task-grid.has-delay{min-width:760px}}
+
+.original-details-fields.hidden,.delay-fields.hidden{display:none!important}
