@@ -119,3 +119,14 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 .timeline-zone-fill{background:repeating-linear-gradient(to right,#F1F5F9 0,#F1F5F9 41px,#E2E8F0 41px,#E2E8F0 42px)}
 .timeline-bar,.timeline-bar.in_progress,.timeline-bar.complete,.timeline-bar.blocked{top:8px;height:16px;border-radius:9999px;background:#0EA5E9;box-shadow:none}
 .timeline-row .timeline-label,.timeline-zone-label{border-right:1px solid #E2E8F0}
+.subcontractor-gantt-scroll{position:relative;max-height:600px;overflow:auto;border:1px solid var(--line);border-radius:9px;background:white}
+.subcontractor-gantt-scroll .overview-trade-group{position:sticky;left:0;z-index:3}
+.subcontractor-gantt-scroll .overview-gantt-axis{position:sticky;top:0;z-index:4}
+.subcontractor-gantt-scroll .overview-gantt-label{width:250px;min-width:250px}
+.subcontractor-gantt-scroll .overview-gantt-axis .overview-gantt-label{z-index:5}
+.subcontractor-gantt-scroll .timeline-overview-track{background:repeating-linear-gradient(to right,#fff 0,#fff 34px,#F8FAFC 35px,#F8FAFC 48px,#E2E8F0 48px,#E2E8F0 49px)}
+.subcontractor-gantt-scroll .timeline-single-bar{top:14px;height:12px;border-radius:9999px;background:var(--teal);cursor:pointer}
+.subcontractor-gantt-scroll .timeline-single-bar:hover{filter:brightness(.92)}
+.subcontractor-gantt-scroll .timeline-today-line{top:45px}
+.subcontractor-gantt-scroll .timeline-today-badge{top:27px}
+@media(max-width:760px){.subcontractor-gantt-scroll .overview-gantt-label{width:190px;min-width:190px}}
