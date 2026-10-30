@@ -130,3 +130,24 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 .subcontractor-gantt-scroll .timeline-today-line{top:45px}
 .subcontractor-gantt-scroll .timeline-today-badge{top:27px}
 @media(max-width:760px){.subcontractor-gantt-scroll .overview-gantt-label{width:190px;min-width:190px}}
+/* Subcontractor Gantt: one calendar day per column, grouped by zone */
+.subtask-gantt-scroll{position:relative;max-height:600px;overflow:auto;border:1px solid var(--line);border-radius:9px;background:#fff;overscroll-behavior-x:contain}
+.subtask-gantt-axis{display:flex;position:sticky;top:0;z-index:4;background:#eef3f6;border-bottom:1px solid var(--line);width:max-content;min-width:100%}
+.subtask-gantt-label,.subtask-gantt-axis-label{position:sticky;left:0;z-index:3;width:250px;min-width:250px;padding:6px 11px;border-right:1px solid #e2e8f0;background:#fff;display:flex;align-items:center;color:#243a51;font-size:11px;line-height:1.25}
+.subtask-axis-label{z-index:5;background:#eef3f6;font-weight:700;color:#536578}
+.subtask-gantt-date-head{flex:none}
+.subtask-months{display:flex;height:32px;background:#e8eef3;border-bottom:1px solid #d9e2e9}
+.subtask-month{flex:none;display:flex;align-items:center;justify-content:center;border-left:1px solid #e2e8f0;color:#183b5b;font-size:11px;font-weight:700;white-space:nowrap}
+.subtask-days{display:flex;height:38px}
+.subtask-day{flex:0 0 36px;width:36px;height:38px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-left:1px solid #e2e8f0;background:#fff;color:#536578;font-size:9px;line-height:1.15}
+.subtask-day b,.subtask-day span{display:block}.subtask-day span{margin-top:2px;color:#243a51;font-size:11px}.subtask-day.weekend{background:#f8fafc}.subtask-day.today{background:#fff0d6;color:#8a5000;border-bottom:2px solid #c87906}.subtask-day.today span{color:#8a5000;font-weight:750}
+.subtask-zone-row{display:flex;width:max-content;min-width:100%;height:31px;background:#f1f5f9}
+.subtask-zone-label{position:sticky;left:0;z-index:3;width:250px;min-width:250px;padding:7px 11px;border-right:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;background:#f1f5f9;color:#0f172a;font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.subtask-zone-fill{height:31px;flex:none;border-bottom:1px solid #e2e8f0;background:repeating-linear-gradient(to right,#f1f5f9 0,#f1f5f9 35px,#e2e8f0 35px,#e2e8f0 36px)}
+.subtask-gantt-row{display:flex;width:max-content;min-width:100%;height:32px;border-bottom:1px solid #e9edf1;background:#fff}
+.subtask-gantt-row>.subtask-gantt-label{height:32px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.subtask-gantt-track{position:relative;flex:none;height:32px;overflow:hidden;background:repeating-linear-gradient(to right,#fff 0,#fff 35px,#e2e8f0 35px,#e2e8f0 36px)}
+.subtask-weekend-band{position:absolute;top:0;bottom:0;width:36px;z-index:0;background:#f8fafc;border-right:1px solid #e2e8f0}
+.subtask-gantt-bar{position:absolute;top:8px;height:16px;z-index:1;border-radius:9999px;background:var(--teal);cursor:pointer}.subtask-gantt-bar:hover{filter:brightness(.92)}
+.subtask-gantt-scroll .timeline-today-line{top:70px}.subtask-gantt-scroll .timeline-today-badge{top:43px}
+@media(max-width:800px){.subtask-gantt-label,.subtask-zone-label{width:190px;min-width:190px}}
