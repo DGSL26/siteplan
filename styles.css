@@ -74,3 +74,28 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 @media(max-width:800px){.task-grid:not(.has-delay){min-width:690px}.task-grid.has-delay{min-width:760px}}
 
 .original-details-fields.hidden,.delay-fields.hidden{display:none!important}
+:root{--timeline-weekend:#f3f6f8;--timeline-today:#c87906}
+/* Schedule table: task, start, finish, duration, status, optional delay, actions */
+.task-grid:not(.has-delay){grid-template-columns:minmax(200px,1.55fr) minmax(105px,.72fr) minmax(105px,.72fr) minmax(82px,.52fr) minmax(86px,.58fr) 68px;gap:8px}
+.task-grid.has-delay{grid-template-columns:minmax(190px,1.42fr) minmax(102px,.7fr) minmax(102px,.7fr) minmax(78px,.5fr) minmax(82px,.55fr) minmax(72px,.42fr) 68px;gap:7px}
+.task-date-stack .actual-date{font-weight:400}
+.task-date-stack small{color:#9aa5b1;font-size:9px;font-weight:400}
+.duration-cell{white-space:nowrap;color:#354b61;font-size:11px}
+.duration-cell small{color:var(--muted);font-size:10px}
+.task-menu{width:170px}
+.company[draggable="true"]{cursor:grab;user-select:none}
+.company.dragging{opacity:.45}
+.company[ondragover]{transition:background .12s ease}
+.completed-task-row{grid-template-columns:minmax(190px,1.35fr) minmax(170px,1fr) minmax(180px,.9fr) auto}
+.archive-restore{padding:7px 11px;white-space:nowrap}
+.timeline-scroll{position:relative}
+.timeline-day.weekend{background:var(--timeline-weekend)}
+.timeline-day.today{background:#fff0d6;color:#8a5000}
+.timeline-day.today span{color:#8a5000;font-weight:750}
+.timeline-track{background:none;overflow:hidden}
+.timeline-weekend-band{position:absolute;inset:0 auto 0 0;width:42px;background:var(--timeline-weekend);z-index:0}
+.timeline-bar{top:17px;height:23px;border-radius:9999px;padding:0;line-height:normal;z-index:1}
+.timeline-today-line{position:absolute;top:0;bottom:0;border-left:2px dashed var(--timeline-today);pointer-events:none;z-index:5}
+@media(max-width:1120px){.task-grid:not(.has-delay){grid-template-columns:minmax(180px,1.4fr) minmax(95px,.7fr) minmax(95px,.7fr) minmax(75px,.5fr) minmax(80px,.55fr) 62px}.task-grid.has-delay{grid-template-columns:minmax(175px,1.3fr) minmax(92px,.68fr) minmax(92px,.68fr) minmax(72px,.48fr) minmax(78px,.53fr) minmax(66px,.4fr) 62px}}
+@media(max-width:800px){.task-grid:not(.has-delay){min-width:780px}.task-grid.has-delay{min-width:850px}.completed-task-row{grid-template-columns:1fr;gap:7px}}
+.sub-drag-handle{flex:none;color:#8b9aaa;font-size:17px;line-height:1;cursor:grab;padding:4px}.company:hover .sub-drag-handle{color:var(--teal)}
