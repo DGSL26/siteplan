@@ -151,3 +151,7 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 .subtask-gantt-bar{position:absolute;top:8px;height:16px;z-index:1;border-radius:9999px;background:var(--teal);cursor:pointer}.subtask-gantt-bar:hover{filter:brightness(.92)}
 .subtask-gantt-scroll .timeline-today-line{top:70px}.subtask-gantt-scroll .timeline-today-badge{top:43px}
 @media(max-width:800px){.subtask-gantt-label,.subtask-zone-label{width:190px;min-width:190px}}
+.step.sequence-task-link{cursor:pointer;transition:background-color .15s ease,border-color .15s ease,transform .15s ease}
+.step.sequence-task-link:hover,.step.sequence-task-link:focus-visible{border-color:#54b7b2;background:#f1fbfa;transform:translateY(-1px);outline:none}
+.task-highlight{position:relative;z-index:2;animation:sequence-task-pulse 2.4s ease-out}
+@keyframes sequence-task-pulse{0%,35%{background:#fff2cc;box-shadow:0 0 0 3px #dba43b88}100%{background:transparent;box-shadow:0 0 0 0 transparent}}
