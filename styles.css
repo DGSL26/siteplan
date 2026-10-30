@@ -163,7 +163,7 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 }
 /* Keep the three schedule panels in the viewport and scroll their contents independently. */
 @media(min-width:1101px){
-  main.content:has(#mainGrid:not(.hidden)){height:calc(100vh - 65px);min-height:0;display:flex;flex-direction:column;overflow:hidden}
+  main.content:has(#mainGrid:not(.hidden)){height:calc(100vh - 82px);min-height:0;display:flex;flex-direction:column;overflow:hidden}
   #mainGrid:not(.hidden){height:100%;min-height:0;flex:1 1 auto;overflow:hidden}
   #mainGrid>.panel{height:100%;min-height:0;overflow:hidden}
   #mainGrid>.listpanel{display:flex;flex-direction:column}
@@ -179,7 +179,7 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 @media(min-width:1101px){
   body:not(.signed-out):has(#mainGrid:not(.hidden)){height:100dvh;overflow:hidden}
   body:not(.signed-out):has(#mainGrid:not(.hidden)) .app{height:100dvh;min-height:0;overflow:hidden}
-  main.content:has(#mainGrid:not(.hidden)){height:calc(100dvh - 65px);min-height:0;overflow:hidden}
+  main.content:has(#mainGrid:not(.hidden)){height:calc(100dvh - 82px);min-height:0;overflow:hidden}
   #mainGrid:not(.hidden){height:100%;min-height:0;overflow:hidden}
 }
 @media(min-width:1101px){
@@ -197,7 +197,7 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 
 /* Keep the three main panels aligned to a consistent bottom inset on desktop. */
 @media(min-width:1101px){
-  main.content:has(#mainGrid:not(.hidden)){height:calc(100dvh - 65px);min-height:0;box-sizing:border-box;padding:16px 16px 28px;display:flex;flex-direction:column;overflow:hidden}
-  #mainGrid:not(.hidden){height:auto;min-height:0;flex:1 1 auto;margin:0;align-items:stretch;overflow:hidden}
+  main.content:has(#mainGrid:not(.hidden)){height:calc(100dvh - 82px);min-height:0;box-sizing:border-box;padding:16px 16px 28px;display:flex;flex-direction:column;overflow:hidden}
+  #mainGrid:not(.hidden){height:auto;min-height:0;flex:1 1 auto;margin:0;align-items:stretch;grid-template-rows:minmax(0,1fr);overflow:hidden}
   #mainGrid:not(.hidden)>.panel{height:100%;min-height:0;align-self:stretch}
 }
