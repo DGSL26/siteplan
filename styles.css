@@ -109,3 +109,13 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 .timeline-row .timeline-label{height:32px;padding:4px 10px;min-height:32px}
 .timeline-track{height:32px;min-height:32px}
 .timeline-bar{top:6px;height:20px}
+/* Softer, structured Gantt styling */
+.timeline-zone-row,.timeline-zone-fill{background:#F1F5F9}
+.timeline-zone-label{background:#F1F5F9;color:#0F172A;border-bottom:1px solid #E2E8F0}
+.timeline-track{background:repeating-linear-gradient(to right,#fff 0,#fff 41px,#E2E8F0 41px,#E2E8F0 42px)}
+.timeline-weekend-band{background:#F8FAFC;border-right:1px solid #E2E8F0}
+.timeline-day{border-left:1px solid #E2E8F0;border-right:0;background:#fff}
+.timeline-day.weekend{background:#F8FAFC}
+.timeline-zone-fill{background:repeating-linear-gradient(to right,#F1F5F9 0,#F1F5F9 41px,#E2E8F0 41px,#E2E8F0 42px)}
+.timeline-bar,.timeline-bar.in_progress,.timeline-bar.complete,.timeline-bar.blocked{top:8px;height:16px;border-radius:9999px;background:#0EA5E9;box-shadow:none}
+.timeline-row .timeline-label,.timeline-zone-label{border-right:1px solid #E2E8F0}
