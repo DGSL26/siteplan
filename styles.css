@@ -194,3 +194,10 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 
 .sequence-separator{display:flex;align-items:center;gap:8px;margin:14px 4px 10px 28px;color:var(--muted);font-size:10px;font-weight:650;text-transform:uppercase;letter-spacing:.055em}.sequence-separator::before,.sequence-separator::after{content:'';height:1px;background:var(--line);flex:1}
 
+
+/* Keep the three main panels aligned to a consistent bottom inset on desktop. */
+@media(min-width:1101px){
+  main.content:has(#mainGrid:not(.hidden)){height:calc(100dvh - 65px);min-height:0;box-sizing:border-box;padding:16px 16px 28px;display:flex;flex-direction:column;overflow:hidden}
+  #mainGrid:not(.hidden){height:auto;min-height:0;flex:1 1 auto;margin:0;align-items:stretch;overflow:hidden}
+  #mainGrid:not(.hidden)>.panel{height:100%;min-height:0;align-self:stretch}
+}
