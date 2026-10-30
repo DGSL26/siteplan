@@ -155,3 +155,9 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 .step.sequence-task-link:hover,.step.sequence-task-link:focus-visible{border-color:#54b7b2;background:#f1fbfa;transform:translateY(-1px);outline:none}
 .task-highlight{position:relative;z-index:2;animation:sequence-task-pulse 2.4s ease-out}
 @keyframes sequence-task-pulse{0%,35%{background:#fff2cc;box-shadow:0 0 0 3px #dba43b88}100%{background:transparent;box-shadow:0 0 0 0 transparent}}
+@media(min-width:1101px){
+  .right{display:flex;flex-direction:column;min-height:0;max-height:calc(100vh - 110px);overflow:hidden}
+  .right>h2,.right>.linknote,.right>.impact,.right>.footerbtn{flex:none}
+  #sequence{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;padding:0 7px 4px 0;scrollbar-gutter:stable}
+  .right.delay-mode{overflow-y:auto}
+}
