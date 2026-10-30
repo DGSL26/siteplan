@@ -161,3 +161,18 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
   #sequence{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;padding:0 7px 4px 0;scrollbar-gutter:stable}
   .right.delay-mode{overflow-y:auto}
 }
+/* Keep the three schedule panels in the viewport and scroll their contents independently. */
+@media(min-width:1101px){
+  main.content:has(#mainGrid:not(.hidden)){height:calc(100vh - 65px);min-height:0;display:flex;flex-direction:column;overflow:hidden}
+  #mainGrid:not(.hidden){height:100%;min-height:0;flex:1 1 auto;overflow:hidden}
+  #mainGrid>.panel{height:100%;min-height:0;overflow:hidden}
+  #mainGrid>.listpanel{display:flex;flex-direction:column}
+  #mainGrid #companies{flex:1 1 auto;min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain}
+  #mainGrid>.sched{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+  #mainGrid>.sched>.schedhead,#mainGrid>.sched>.controls{flex:none}
+  #mainGrid #schedule{flex:1 1 auto;min-height:0;overflow:hidden}
+  #mainGrid #schedule>.schedule-table-scroll{height:100%;max-height:100%;overflow:auto;overscroll-behavior:contain}
+  #mainGrid #schedule .subtask-gantt-scroll,#mainGrid #schedule .subcontractor-gantt-scroll{height:100%;max-height:100%}
+  #mainGrid>.right{height:100%;max-height:none;min-height:0;overflow:hidden}
+  #mainGrid>.right>#sequence{flex:1 1 auto;min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain}
+}
