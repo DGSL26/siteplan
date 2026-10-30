@@ -186,3 +186,7 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
   #mainGrid>.panel{position:relative;border-bottom:1px solid var(--line)!important;box-shadow:inset 0 -1px 0 var(--line),0 2px 8px #18304708}
   #mainGrid>.panel::after{content:"";position:absolute;left:1px;right:1px;bottom:0;height:1px;background:var(--line);pointer-events:none;z-index:20}
 }
+@media(min-width:1101px){
+  main.content:has(#mainGrid:not(.hidden)){box-sizing:border-box;padding-bottom:16px}
+  #mainGrid:not(.hidden){height:auto;flex:1 1 0;min-height:0;margin-bottom:0}
+}
