@@ -224,4 +224,4 @@ body.signed-out .content,body.signed-out .topright{display:none}.login{display:n
 
 .nonworking-date-warning{margin-top:2px;padding:7px 9px;border:1px solid #f2c5c0;border-radius:6px;background:#fff2f0;color:#a1271d;font-size:11px;font-weight:550;line-height:1.4}
 /* Linked sequence branches only connect when there is a direct predecessor edge. */
-.sequence-branch-divider{display:flex;align-items:center;min-height:28px;margin:2px 0 2px 12px;padding-left:15px;border-left:1px dashed #b7c5d2;color:#718397}.sequence-branch-divider small,.sequence-relation{display:block;color:#78899a;font-size:10px;font-style:italic;line-height:1.35}.sequence-relation{margin-top:3px}
+.sequence-branch-spacer{height:18px;margin:0 0 0 12px;border-left:1px dashed #b7c5d2}
