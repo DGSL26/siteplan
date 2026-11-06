@@ -266,3 +266,19 @@ body.map-view-active{height:100dvh;overflow:hidden}body.map-view-active .content
 .site-map-controls{flex-wrap:wrap;max-width:min(510px,calc(100% - 20px));justify-content:center}.site-map-controls small{flex-basis:100%;text-align:center;padding:2px 6px;color:#62768a;font-size:10px}
 .site-map-canvas-stage.dragging canvas,.site-map-canvas-stage.dragging #siteMapOverlay{cursor:grabbing!important}
 @media(max-width:700px){.site-map-facts{left:7px;bottom:7px;max-width:calc(100% - 20px);gap:5px}.site-map-facts>div{padding:7px 8px}.site-map-facts span{font-size:10px}.site-map-controls{right:7px;bottom:auto;top:7px;max-width:calc(100% - 14px)}.site-map-popup-host{left:8px!important;top:58px!important;max-width:calc(100% - 16px);max-height:calc(100% - 130px)}.map-info-card{width:calc(100vw - 60px);padding:14px}}
+
+/* The map is one inline SVG drawing: original plan plus built-in clickable block paths. */
+.site-map-drawing{position:absolute;inset:0;overflow:visible;pointer-events:none}
+.site-map-drawing #siteMapSvg{position:absolute;width:1888px;height:1333px;max-width:none;max-height:none;transform-origin:center center;overflow:visible;pointer-events:auto;filter:drop-shadow(0 2px 10px #10263d12)}
+#siteMapSvg .map-zone polygon{fill:none;stroke:#183b5a;stroke-width:4;vector-effect:non-scaling-stroke;pointer-events:none}
+#siteMapSvg .map-zone line{stroke:#183b5a;stroke-width:2;vector-effect:non-scaling-stroke;pointer-events:none}
+#siteMapSvg .map-zone rect{fill:#fff;fill-opacity:.96;stroke:#193b5b;stroke-width:1.5;vector-effect:non-scaling-stroke}
+#siteMapSvg .map-zone text{fill:#102b44;font:700 16px Segoe UI,Arial,sans-serif;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
+#siteMapSvg .map-block{pointer-events:all;cursor:pointer;stroke:#fff;stroke-width:2.5;vector-effect:non-scaling-stroke;fill-opacity:.28;transition:fill-opacity .12s,stroke-width .12s}
+#siteMapSvg .map-block:hover,#siteMapSvg .map-block:focus{fill-opacity:.52;stroke:#102d48;stroke-width:4;outline:none}
+#siteMapSvg .map-block.not-started{fill:#8998a5}.site-map-canvas-stage.dragging #siteMapSvg{cursor:grabbing}
+#siteMapSvg .map-block.ongoing{fill:#d64646}#siteMapSvg .map-block.complete{fill:#15956e}#siteMapSvg .map-block.selected{stroke:#0b8990;stroke-width:5;fill-opacity:.58}
+
+.site-map-drawing{pointer-events:none}
+.site-map-drawing #siteMapSvg{pointer-events:all}
+
