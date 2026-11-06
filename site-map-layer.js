@@ -1,35 +1,29 @@
 /* SitePlan interactive map: the converted SVG contains the drawing and clickable house blocks together. */
 const SITE_MAP_VIEWBOX={width:1888,height:1333};
-const SITE_MAP_ZONES=[
- {name:'Zone A · Belvedere Close',points:'751,1015 834,839 1041,976 927,1093',label:{x:680,y:1090,anchor:'end'},labelTarget:{x:755,y:1020}},
- {name:'Zone B · Belvedere Walk',points:'881,699 958,647 1171,885 1057,979',label:{x:818,y:614,anchor:'end'},labelTarget:{x:890,y:700}},
- {name:'Zone C · Belvedere Walk',points:'855,601 884,488 1015,466 1176,736 1072,808',label:{x:1200,y:660,anchor:'start'},labelTarget:{x:1130,y:614}},
- {name:'Zone D · Belvedere Way',points:'1178,622 1225,295 1360,326 1101,647',label:{x:1380,y:550,anchor:'start'},labelTarget:{x:1295,y:520}},
- {name:'Zone E · Belvedere Avenue',points:'1010,259 1233,295 1114,502 1010,425',label:{x:948,y:292,anchor:'end'},labelTarget:{x:1005,y:390}}
-];
+const SITE_MAP_ZONES=[{"name":"Zone A - 1-8 Belvedere Close","points":"750,866 862,954 1059,1095 937,1183","label":{"x":640,"y":1090,"anchor":"end"},"labelTarget":{"x":747,"y":1085}},{"name":"Zone B - 14-21 Belvedere Walk","points":"861,763 942,686 1178,843 1085,930","label":{"x":785,"y":785,"anchor":"end"},"labelTarget":{"x":866,"y":765}},{"name":"Zone C - 8-13 Belvedere Walk","points":"890,535 978,426 1192,558 1100,690","label":{"x":1110,"y":650,"anchor":"start"},"labelTarget":{"x":1165,"y":625}},{"name":"Zone D - 25-32 Belvedere Way","points":"1082,522 1170,346 1370,420 1280,580","label":{"x":1330,"y":545,"anchor":"start"},"labelTarget":{"x":1280,"y":530}},{"name":"Zone E - 30-34 Belvedere Avenue","points":"1004,416 1096,302 1227,370 1113,515","label":{"x":940,"y":290,"anchor":"end"},"labelTarget":{"x":1010,"y":420}}];
 const SITE_MAP_BLOCKS=[
- {key:'A-01-02',name:'1–2 Belvedere Close',zone:'Zone A',points:'782,834 840,819 881,885 829,927'},
- {key:'A-03-04',name:'3–4 Belvedere Close',zone:'Zone A',points:'836,890 888,874 927,935 875,989'},
- {key:'A-05-06',name:'5–6 Belvedere Close',zone:'Zone A',points:'894,953 946,936 987,1000 935,1047'},
- {key:'A-07-08',name:'7–8 Belvedere Close',zone:'Zone A',points:'940,1010 991,989 1025,1054 974,1108'},
- {key:'B-14-15',name:'14–15 Belvedere Walk',zone:'Zone B',points:'896,702 970,708 974,778 918,785'},
- {key:'B-16-17',name:'16–17 Belvedere Walk',zone:'Zone B',points:'968,777 1044,766 1056,839 995,852'},
- {key:'B-18-19',name:'18–19 Belvedere Walk',zone:'Zone B',points:'1010,829 1088,818 1108,896 1031,907'},
- {key:'B-20-21',name:'20–21 Belvedere Walk',zone:'Zone B',points:'1077,886 1162,881 1187,958 1103,973'},
- {key:'C-08-09',name:'8–9 Belvedere Walk',zone:'Zone C',points:'1000,596 1058,579 1108,655 1048,704'},
- {key:'C-10-11',name:'10–11 Belvedere Walk',zone:'Zone C',points:'933,538 1007,526 1060,625 973,643'},
- {key:'C-12-13',name:'12–13 Belvedere Walk',zone:'Zone C',points:'891,471 958,466 982,563 913,574'},
- {key:'D-25-26',name:'25–26 Belvedere Way',zone:'Zone D',points:'1218,295 1351,300 1345,392 1220,389'},
- {key:'D-27-28',name:'27–28 Belvedere Way',zone:'Zone D',points:'1165,362 1290,370 1276,477 1165,468'},
- {key:'D-29-30',name:'29–30 Belvedere Way',zone:'Zone D',points:'1125,451 1248,460 1230,565 1120,554'},
- {key:'D-31-32',name:'31–32 Belvedere Way',zone:'Zone D',points:'1077,543 1196,547 1180,647 1072,637'},
- {key:'E-30-31',name:'30–31 Belvedere Avenue',zone:'Zone E',points:'1010,245 1124,252 1120,349 1012,347'},
- {key:'E-32-33',name:'32–33 Belvedere Avenue',zone:'Zone E',points:'1040,347 1165,350 1150,477 1035,470'},
+ {key:'A-01-02',name:'1/2 Belvedere Close',zone:'Zone A',points:'782,834 840,819 881,885 829,927'},
+ {key:'A-03-04',name:'3/4 Belvedere Close',zone:'Zone A',points:'836,890 888,874 927,935 875,989'},
+ {key:'A-05-06',name:'5/6 Belvedere Close',zone:'Zone A',points:'894,953 946,936 987,1000 935,1047'},
+ {key:'A-07-08',name:'7/8 Belvedere Close',zone:'Zone A',points:'940,1010 991,989 1025,1054 974,1108'},
+ {key:'B-14-15',name:'14/15 Belvedere Walk',zone:'Zone B',points:'896,702 970,708 974,778 918,785'},
+ {key:'B-16-17',name:'16/17 Belvedere Walk',zone:'Zone B',points:'968,777 1044,766 1056,839 995,852'},
+ {key:'B-18-19',name:'18/19 Belvedere Walk',zone:'Zone B',points:'1010,829 1088,818 1108,896 1031,907'},
+ {key:'B-20-21',name:'20/21 Belvedere Walk',zone:'Zone B',points:'1077,886 1162,881 1187,958 1103,973'},
+ {key:'C-08-09',name:'8/9 Belvedere Walk',zone:'Zone C',points:'1000,596 1058,579 1108,655 1048,704'},
+ {key:'C-10-11',name:'10/11 Belvedere Walk',zone:'Zone C',points:'933,538 1007,526 1060,625 973,643'},
+ {key:'C-12-13',name:'12/13 Belvedere Walk',zone:'Zone C',points:'891,471 958,466 982,563 913,574'},
+ {key:'D-25-26',name:'25/26 Belvedere Way',zone:'Zone D',points:'1218,295 1351,300 1345,392 1220,389'},
+ {key:'D-27-28',name:'27/28 Belvedere Way',zone:'Zone D',points:'1165,362 1290,370 1276,477 1165,468'},
+ {key:'D-29-30',name:'29/30 Belvedere Way',zone:'Zone D',points:'1125,451 1248,460 1230,565 1120,554'},
+ {key:'D-31-32',name:'31/32 Belvedere Way',zone:'Zone D',points:'1077,543 1196,547 1180,647 1072,637'},
+ {key:'E-30-31',name:'30/31 Belvedere Avenue',zone:'Zone E',points:'1010,245 1124,252 1120,349 1012,347'},
+ {key:'E-32-33',name:'32/33 Belvedere Avenue',zone:'Zone E',points:'1040,347 1165,350 1150,477 1035,470'},
  {key:'E-34',name:'34 Belvedere Avenue',zone:'Zone E',points:'1010,440 1103,447 1090,554 1007,544'}
 ];
 let siteMapPopupBlockKey=null;
 const mapEsc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-function taskMapBlockKeys(task){if(Array.isArray(task.map_block_keys))return task.map_block_keys;let taskZone=String(task.zone||'').match(/zone\s*([a-e])/i),range=String(task.title||'').match(/^\s*(\d+)\s*[-–]\s*(\d+)/);if(!taskZone||!range)return[];let from=Number(range[1]),to=Number(range[2]);return SITE_MAP_BLOCKS.filter(block=>{let zone=block.zone.match(/zone\s*([a-e])/i),r=block.name.match(/(\d+)\s*[–-]\s*(\d+)/),single=block.name.match(/^(\d+)\s/),start=r?Number(r[1]):single?Number(single[1]):null,end=r?Number(r[2]):start;return zone&&zone[1].toLowerCase()===taskZone[1].toLowerCase()&&start!==null&&from<=start&&to>=end}).map(block=>block.key)}
+function taskMapBlockKeys(task){if(Array.isArray(task.map_block_keys)&&task.map_block_keys.length)return task.map_block_keys;let taskZone=String(task.zone||'').match(/zone\s*([a-e])/i),range=String(task.title||'').match(/^\s*(\d+)\s*[-–]\s*(\d+)/);if(!taskZone||!range)return[];let from=Number(range[1]),to=Number(range[2]);return SITE_MAP_BLOCKS.filter(block=>{let zone=block.zone.match(/zone\s*([a-e])/i),r=block.name.match(/(\d+)\s*[–-]\s*(\d+)/),single=block.name.match(/^(\d+)\s/),start=r?Number(r[1]):single?Number(single[1]):null,end=r?Number(r[2]):start;return zone&&zone[1].toLowerCase()===taskZone[1].toLowerCase()&&start!==null&&from<=start&&to>=end}).map(block=>block.key)}
 function mapBlockTasks(key){return [...tasks,...archivedTasks].filter(task=>task.archive_reason!=='deleted'&&taskMapBlockKeys(task).includes(key))}
 function mapBlockStatus(items){if(!items.length)return'not-started';if(items.every(task=>task.status==='complete'))return'complete';let today=localTodayIso();if(items.some(task=>task.status==='in_progress'||task.actual_start||currentTaskStart(task)<=today))return'ongoing';return'not-started'}
 function mapBlockSummary(block){let items=mapBlockTasks(block.key),complete=items.filter(task=>task.status==='complete').length,total=items.length,finish=items.map(task=>task.status==='complete'?(task.actual_finish||currentTaskFinish(task)):currentTaskFinish(task)).filter(Boolean).sort().at(-1)||'',original=items.map(task=>task.baseline_finish||baselineTaskDates(task).finish).filter(Boolean).sort().at(-1)||'',delay=finish&&original?workingDayVariance(original,finish):0;return{items,complete,total,percent:total?Math.round(complete/total*100):0,finish,original,delay,status:mapBlockStatus(items)}}
