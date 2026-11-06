@@ -282,3 +282,14 @@ body.map-view-active{height:100dvh;overflow:hidden}body.map-view-active .content
 .site-map-drawing{pointer-events:none}
 .site-map-drawing #siteMapSvg{pointer-events:all}
 
+
+
+
+/* Site map: aligned zone boundaries, compact two-line labels, discreet clickable house blocks. */
+#siteMapSvg .map-zone polygon{fill:none;stroke:#183b5b;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;opacity:.88;vector-effect:non-scaling-stroke;pointer-events:none}
+#siteMapSvg .map-zone line{stroke:#183b5b;stroke-width:1.35;stroke-linecap:round;opacity:.78;vector-effect:non-scaling-stroke;pointer-events:none}
+#siteMapSvg .map-zone rect{fill:#fff;fill-opacity:.94;stroke:#193b5b;stroke-width:1;vector-effect:non-scaling-stroke}
+#siteMapSvg .map-zone text{fill:#102b44;font:700 10px Segoe UI,Arial,sans-serif;paint-order:stroke;stroke:#fff;stroke-width:1px;stroke-linejoin:round}
+#siteMapSvg .map-block{stroke:#fff;stroke-width:1.5;fill-opacity:.18;vector-effect:non-scaling-stroke}
+#siteMapSvg .map-block:hover,#siteMapSvg .map-block:focus{fill-opacity:.34;stroke:#0b7280;stroke-width:2.5;outline:none}
+#siteMapSvg .map-block.selected{stroke:#087f86;stroke-width:3;fill-opacity:.45}
