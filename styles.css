@@ -378,4 +378,6 @@ body.map-view-active .site-map-canvas-stage{flex:1 1 auto;min-height:0;height:au
 #siteMapSvg #siteMapBlocks .map-block.complete{fill:#15956e!important}
 #siteMapSvg #siteMapBlocks .map-block.selected{stroke:#087f86!important;stroke-width:4!important;fill-opacity:.72!important}
 #siteMapSvg #siteMapBlocks .map-block:hover,#siteMapSvg #siteMapBlocks .map-block:focus{stroke:#102d48!important;stroke-width:3.5!important;fill-opacity:.78!important;outline:none}
+#siteMapSvg #siteMapZoneOverlays .map-zone>polygon{fill:none!important;stroke:#183b5b!important;stroke-width:2.6!important;vector-effect:non-scaling-stroke;pointer-events:none!important}
+#siteMapSvg #siteMapZoneOverlays .map-zone>line{fill:none!important;stroke:#183b5b!important;stroke-width:1.35!important;vector-effect:non-scaling-stroke;pointer-events:none!important}
 .custom-delay-reason{display:block;box-sizing:border-box;width:100%;margin-top:7px;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);font:inherit;font-size:13px}
