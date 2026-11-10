@@ -366,4 +366,16 @@ body.map-view-active .site-map-canvas-stage{flex:1 1 auto;min-height:0;height:au
 #sequence [data-complete="true"] small{color:#647382!important}
 #sequence [data-complete="true"] .sequence-completed-label{color:#526170!important;font-weight:700}
 #subcontractor-context-menu{position:fixed;right:auto;top:auto;z-index:5000;width:190px}
+/* Keep the plan below a clearly visible, interactive house-block layer. */
+.site-map-drawing{z-index:1!important;isolation:isolate}
+#siteMapBaseImage{z-index:0!important}
+.site-map-drawing #siteMapSvg{z-index:2!important;pointer-events:auto!important}
+#siteMapSvg #originalPlan{pointer-events:none!important}
+#siteMapSvg #siteMapBlocks{pointer-events:all}
+#siteMapSvg #siteMapBlocks .map-block{pointer-events:all!important;cursor:pointer!important;stroke:#29465e!important;stroke-width:2.4!important;fill-opacity:.58!important;vector-effect:non-scaling-stroke}
+#siteMapSvg #siteMapBlocks .map-block.not-started{fill:#8997a5!important}
+#siteMapSvg #siteMapBlocks .map-block.ongoing{fill:#d9534f!important}
+#siteMapSvg #siteMapBlocks .map-block.complete{fill:#15956e!important}
+#siteMapSvg #siteMapBlocks .map-block.selected{stroke:#087f86!important;stroke-width:4!important;fill-opacity:.72!important}
+#siteMapSvg #siteMapBlocks .map-block:hover,#siteMapSvg #siteMapBlocks .map-block:focus{stroke:#102d48!important;stroke-width:3.5!important;fill-opacity:.78!important;outline:none}
 .custom-delay-reason{display:block;box-sizing:border-box;width:100%;margin-top:7px;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);font:inherit;font-size:13px}
