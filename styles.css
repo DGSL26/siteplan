@@ -339,3 +339,9 @@ body.map-view-active .site-map-canvas-stage{flex:1 1 auto;min-height:0;height:au
 #sequence .sequence-actions>button:hover,#sequence .sequence-actions>button:focus-visible{border-color:var(--teal)!important;color:var(--teal)!important;outline:none}
 #sequence .sequence-actions>.sequence-delete:hover,#sequence .sequence-actions>.sequence-delete:focus-visible{border-color:#dc6565!important;background:#fff4f3!important;color:#b42318!important}
 @media(max-width:760px){.nav button,.nav button:not(.active){display:grid!important;grid-template-columns:14px max-content;column-gap:4px!important;width:auto;min-height:40px;padding:9px 11px}.nav .nav-archive{margin-top:0}}
+
+/* Completed sequence cards retain a visible grey surface, including when selected. */
+#sequence [data-complete="true"],#sequence [data-complete="true"].active,#sequence [data-complete="true"]:hover,#sequence [data-complete="true"]:focus-visible{background:#dfe5ea!important;border-color:#bcc7d1!important;color:#526170!important;filter:grayscale(1);opacity:1;box-shadow:none;transform:none}
+#sequence [data-complete="true"]:before{background:#8796a4!important;color:#fff!important}
+#sequence [data-complete="true"] small{color:#647382!important}
+#sequence [data-complete="true"] .sequence-completed-label{color:#526170!important;font-weight:700}
