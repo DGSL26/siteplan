@@ -305,3 +305,7 @@ body.map-view-active main.content{display:flex;flex-direction:column;min-height:
 body.map-view-active .extra-view{display:flex;flex:1 1 0;flex-direction:column;min-height:0;height:auto}
 body.map-view-active .site-map-fullscreen{display:flex;flex:1 1 auto;flex-direction:column;min-height:0;height:auto}
 body.map-view-active .site-map-canvas-stage{flex:1 1 auto;min-height:0;height:auto}
+
+#sequence .sequence-task-link.completed,#sequence .sequence-task-link.completed:hover,#sequence .sequence-task-link.completed:focus-visible,#sequence .sequence-task-link.completed.active{background:#f1f3f5;border-color:#d2d8de;color:#697586;filter:grayscale(1);opacity:.82;transform:none}
+#sequence .sequence-task-link.completed:before,#sequence .sequence-task-link.completed.active:before{background:#98a2ad;color:#fff}
+#sequence .sequence-completed-label{color:#75808d;font-weight:700}
