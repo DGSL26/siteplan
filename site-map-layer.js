@@ -39,7 +39,7 @@ function renderSiteMapZoneOverlays(svg){let holder=svg?.querySelector('#siteMapZ
 function renderSiteMapLayer(){let svg=document.querySelector('#siteMapSvg');if(!svg)return;for(let node of svg.querySelectorAll('[data-block]')){let block=SITE_MAP_BLOCKS.find(item=>item.key===node.dataset.block);if(!block)continue;let status=mapBlockSummary(block).status;node.setAttribute('class',`map-block ${status}${siteMapPopupBlockKey===block.key?' selected':''}`);node.setAttribute('aria-label',`${block.name} · ${mapBlockSummary(block).percent}% complete`)}}
 function setSiteMapZoomLabel(){let label=document.querySelector('#siteMapZoomValue');if(label)label.textContent=siteMapZoom===1?'Fit':`${Math.round(siteMapZoom*100)}%`}
 function clampSiteMapPan(){let stage=document.querySelector('#siteMapCanvasStage');if(!stage)return;let scale=siteMapBaseScale*siteMapZoom;siteMapPanX=Math.max(-Math.max(0,(SITE_MAP_VIEWBOX.width*scale-stage.clientWidth)/2),Math.min(Math.max(0,(SITE_MAP_VIEWBOX.width*scale-stage.clientWidth)/2),siteMapPanX));siteMapPanY=Math.max(-Math.max(0,(SITE_MAP_VIEWBOX.height*scale-stage.clientHeight)/2),Math.min(Math.max(0,(SITE_MAP_VIEWBOX.height*scale-stage.clientHeight)/2),siteMapPanY))}
-function applySiteMapView(){let svg=document.querySelector('#siteMapSvg');if(!svg)return;clampSiteMapPan();let transform=`translate(calc(-50% + ${siteMapPanX}px),calc(-50% + ${siteMapPanY}px)) scale(${siteMapBaseScale*siteMapZoom})`;svg.style.left='50%';svg.style.top='50%';svg.style.transform=transform;setSiteMapZoomLabel()}
+function applySiteMapView(){let svg=document.querySelector('#siteMapSvg'),image=document.querySelector('#siteMapBaseImage');if(!svg)return;clampSiteMapPan();let transform=`translate(calc(-50% + ${siteMapPanX}px),calc(-50% + ${siteMapPanY}px)) scale(${siteMapBaseScale*siteMapZoom})`;for(let node of [image,svg])if(node){node.style.left='50%';node.style.top='50%';node.style.transform=transform}setSiteMapZoomLabel()}
 function updateSiteMapScale(stage){if(!stage)return false;let width=stage.clientWidth,height=stage.clientHeight;if(width<100||height<100)return false;let scale=Math.min((width-20)/SITE_MAP_VIEWBOX.width,(height-20)/SITE_MAP_VIEWBOX.height);if(!Number.isFinite(scale)||scale<=0)return false;siteMapBaseScale=scale;return true}
 function setSiteMapFocus(){let scale=siteMapBaseScale*siteMapZoom;siteMapPanX=(SITE_MAP_VIEWBOX.width/2-1015)*scale;siteMapPanY=(SITE_MAP_VIEWBOX.height/2-670)*scale;clampSiteMapPan();applySiteMapView()}
 window.loadSiteMap=async function(){
@@ -52,9 +52,9 @@ window.loadSiteMap=async function(){
   drawing.innerHTML=markup;
   let svg=drawing.querySelector('#siteMapSvg'),plan=svg?.querySelector('#originalPlan');
   if(!svg||!plan)throw new Error('The interactive map files are incomplete. Upload both files inside the assets folder.');
-  let imageUrl=new URL('assets/site-map.jpg',document.baseURI).href,preload=new Image();preload.src=imageUrl;
-  try{await preload.decode()}catch{throw new Error('The site drawing image could not be loaded. Check that assets/site-map.jpg is in the repository, then try again.')}
-  plan.setAttribute('href',imageUrl);plan.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href',imageUrl);
+  let imageUrl=new URL('assets/site-map.jpg',document.baseURI).href;
+  plan.remove();
+  let baseImage=document.createElement('img');baseImage.id='siteMapBaseImage';baseImage.alt='Knocksedan PH3 site layout';baseImage.draggable=false;Object.assign(baseImage.style,{position:'absolute',width:SITE_MAP_VIEWBOX.width+'px',height:SITE_MAP_VIEWBOX.height+'px',maxWidth:'none',maxHeight:'none',left:'50%',top:'50%',transformOrigin:'center center',pointerEvents:'none',filter:'grayscale(1) contrast(1.03)'});baseImage.onerror=()=>{status.textContent='The site drawing image could not be loaded. Check that assets/site-map.jpg is in the repository.';status.classList.remove('hidden')};drawing.insertBefore(baseImage,svg);baseImage.src=imageUrl;
   svg.setAttribute('preserveAspectRatio','none');svg.setAttribute('focusable','false');
   renderSiteMapZoneOverlays(svg);siteMapPopupBlockKey=null;renderSiteMapLayer();renderSiteMapPopups();setupSiteMapPan();
   siteMapResizeObserver?.disconnect();siteMapResizeObserver=new ResizeObserver(()=>{if(updateSiteMapScale(stage))applySiteMapView()});siteMapResizeObserver.observe(stage);

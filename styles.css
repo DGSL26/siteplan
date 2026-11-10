@@ -310,6 +310,7 @@ body.map-view-active .site-map-canvas-stage{flex:1 1 auto;min-height:0;height:au
 
 /* Site map: keep the drawing and house hit areas in one SVG coordinate space. */
 .site-map-drawing{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+#siteMapBaseImage{position:absolute;z-index:0;display:block;width:1888px;height:1333px;max-width:none;max-height:none;transform-origin:center center;pointer-events:none;user-select:none}
 .site-map-drawing #siteMapSvg{position:absolute;left:50%;top:50%;display:block;width:1888px;height:1333px;max-width:none;max-height:none;overflow:visible;transform-origin:center center;pointer-events:auto}
 #siteMapSvg #originalPlan{pointer-events:none}
 #siteMapSvg .map-block{pointer-events:all;cursor:pointer;stroke:#fff;stroke-width:2;vector-effect:non-scaling-stroke;fill-opacity:.3;transition:fill-opacity .12s,stroke-width .12s}
