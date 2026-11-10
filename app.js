@@ -96,8 +96,8 @@ function upcomingTasksFor(subcontractorId){return tasks.filter(t=>t.subcontracto
         let drawHeader=()=>{
           if(logo){let box={x:left,y:7,w:66,h:19},scale=Math.min(box.w/logo.width,box.h/logo.height),w=logo.width*scale,h=logo.height*scale;doc.addImage(logo.data,'PNG',box.x,box.y+(box.h-h)/2,w,h)}
           else{doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(16,43,81);doc.text('DG GROUP',left,18)}
-          doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(0,118,190);doc.text('UPCOMING WORKS SCHEDULE',92,12);
-          doc.setFont('helvetica','bold');doc.setFontSize(22);doc.setTextColor(16,43,81);doc.text('Knocksedan PH3',92,24);
+          let headerTitleCenter=143.5;doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(0,118,190);doc.text('UPCOMING WORKS SCHEDULE',headerTitleCenter,12,{align:'center'});
+          doc.setFont('helvetica','bold');doc.setFontSize(22);doc.setTextColor(16,43,81);doc.text('Knocksedan PH3',headerTitleCenter,24,{align:'center'});
           doc.setDrawColor(0,118,190);doc.setLineWidth(.75);doc.line(left,32,pageW-right,32);
           let title=doc.splitTextToSize(sub.name,contentW);doc.setFont('helvetica','bold');doc.setFontSize(19);doc.setTextColor(16,43,81);doc.text(title,left,43);
           let y=43+title.length*8;doc.setFont('helvetica','normal');doc.setFontSize(9.5);doc.setTextColor(75,94,117);doc.text(`Issue date · ${issue}`,left,y+1);
