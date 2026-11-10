@@ -96,15 +96,15 @@ function upcomingTasksFor(subcontractorId){return tasks.filter(t=>t.subcontracto
         let drawHeader=()=>{
           if(logo){let box={x:left,y:7,w:66,h:19},scale=Math.min(box.w/logo.width,box.h/logo.height),w=logo.width*scale,h=logo.height*scale;doc.addImage(logo.data,'PNG',box.x,box.y+(box.h-h)/2,w,h)}
           else{doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(16,43,81);doc.text('DG GROUP',left,18)}
-          doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(7,138,145);doc.text('UPCOMING WORKS SCHEDULE',92,12);
-          doc.setFont('helvetica','bold');doc.setFontSize(18);doc.setTextColor(16,43,81);doc.text('Knocksedan PH3',92,22);
-          doc.setDrawColor(7,138,145);doc.setLineWidth(.75);doc.line(left,32,pageW-right,32);
+          doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(0,118,190);doc.text('UPCOMING WORKS SCHEDULE',92,12);
+          doc.setFont('helvetica','bold');doc.setFontSize(22);doc.setTextColor(16,43,81);doc.text('Knocksedan PH3',92,24);
+          doc.setDrawColor(0,118,190);doc.setLineWidth(.75);doc.line(left,32,pageW-right,32);
           let title=doc.splitTextToSize(sub.name,contentW);doc.setFont('helvetica','bold');doc.setFontSize(19);doc.setTextColor(16,43,81);doc.text(title,left,43);
           let y=43+title.length*8;doc.setFont('helvetica','normal');doc.setFontSize(9.5);doc.setTextColor(75,94,117);doc.text(`Issue date · ${issue}`,left,y+1);
           let note='Please Note: All dates shown reflect the updated schedule including any known delays.';
           doc.setFont('helvetica','normal');doc.setFontSize(8.2);let noteLines=doc.splitTextToSize(note,contentW-12),noteY=y+5,noteH=Math.max(10,noteLines.length*4+5);
           doc.setFillColor(245,247,249);doc.rect(left,noteY,contentW,noteH,'F');doc.setDrawColor(217,119,6);doc.setLineWidth(1.5);doc.line(left,noteY,left,noteY+noteH);
-          doc.setFont('helvetica','normal');doc.setFontSize(8.2);doc.setTextColor(75,85,99);doc.text(noteLines,left+5,noteY+4.2);
+          let notePrefix='Please Note: All dates shown reflect the updated schedule ',noteHighlight='including',noteSuffix=' any known delays.',noteTextX=left+5,noteBaseline=noteY+4.2;doc.setFont('helvetica','normal');doc.setFontSize(8.2);doc.setTextColor(75,85,99);doc.text(notePrefix,noteTextX,noteBaseline);noteTextX+=doc.getTextWidth(notePrefix);doc.setFont('helvetica','bold');doc.text(noteHighlight,noteTextX,noteBaseline);noteTextX+=doc.getTextWidth(noteHighlight);doc.setFont('helvetica','normal');doc.text(noteSuffix,noteTextX,noteBaseline);
           let dividerY=noteY+noteH+4;doc.setDrawColor(220,228,233);doc.setLineWidth(.3);doc.line(left,dividerY,pageW-right,dividerY);return dividerY+6
         };
         cursor=drawHeader();
@@ -129,7 +129,7 @@ function upcomingTasksFor(subcontractorId){return tasks.filter(t=>t.subcontracto
               doc.setFont('helvetica','bold');doc.setFontSize(fontSize);doc.setTextColor(23,45,74);doc.text(titleLines,left+4,top+Math.max(4.2,(rowH-titleLines.length*4.5)/2+3.5));
               doc.setFont('helvetica','normal');doc.setFontSize(7.4);doc.setTextColor(53,75,97);doc.text(iso(currentTaskStart(task)),colX[1]+col[1]/2,mid,{align:'center'});doc.text(iso(currentTaskFinish(task)),colX[2]+col[2]/2,mid,{align:'center'});
               doc.setFontSize(7.5);doc.text(`${currentTaskDuration(task)} ${currentTaskDuration(task)===1?'day':'days'}`,colX[3]+col[3]/2,mid,{align:'center'});
-              doc.setFont('helvetica',delayDays?'bold':'normal');doc.setFontSize(7.2);doc.setTextColor(...(delayDays?[190,45,45]:[24,132,82]));doc.text(delayDays?'Delayed':'On track',colX[4]+col[4]/2,mid,{align:'center'});
+              let statusLabel=delayDays?'Delayed':'On track',pillW=delayDays?16:17,pillH=6,pillX=colX[4]+(col[4]-pillW)/2,pillY=mid-4;doc.setFillColor(...(delayDays?[255,232,232]:[229,246,236]));doc.roundedRect(pillX,pillY,pillW,pillH,3,3,'F');doc.setFont('helvetica','bold');doc.setFontSize(7.2);doc.setTextColor(...(delayDays?[190,45,45]:[24,132,82]));doc.text(statusLabel,colX[4]+col[4]/2,mid,{align:'center'});
               if(reasonLines.length){doc.setFont('helvetica','normal');doc.setFontSize(7.2);doc.setTextColor(53,75,97);doc.text(reasonLines,colX[5]+col[5]/2,top+(rowH-reasonLines.length*4)/2+3.2,{align:'center'})}cursor+=rowH
             }
             cursor+=5
