@@ -325,3 +325,17 @@ body.map-view-active .site-map-canvas-stage{flex:1 1 auto;min-height:0;height:au
 .nav .nav-icon{display:inline-grid;flex:0 0 16px;width:16px;place-items:center;text-align:center;line-height:1}
 .nav .nav-archive{margin-top:auto;padding:11px 14px;color:#8095a8;background:transparent;font-size:14px}
 @media(max-width:760px){.nav button,.nav button:not(.active){display:flex;align-items:center;white-space:nowrap;padding:9px 11px}.nav .nav-archive{margin-top:0}}
+
+/* Final alignment pass: preserve visible icon spacing and separate sequence actions. */
+.nav button{display:grid!important;grid-template-columns:14px minmax(0,1fr);column-gap:4px!important;align-items:center;justify-content:start;width:100%;min-height:44px;padding:11px 14px;text-align:left}
+.nav button>span:first-child{grid-column:1}
+.nav button>span:last-child{grid-column:2;min-width:0}
+.nav .nav-icon{display:grid;flex:none;width:14px;min-width:14px;height:18px;place-items:center;text-align:center;line-height:1}
+.nav .nav-archive{margin-top:auto;padding:11px 14px;color:#8095a8;background:transparent;font-size:14px}
+#sequence .sequence-separator{display:flex!important;align-items:center;justify-content:space-between;gap:8px!important;min-height:38px;padding:6px 8px}
+#sequence .sequence-separator>span{display:block;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.3}
+#sequence .sequence-actions{display:flex!important;flex:0 0 auto;flex-direction:row;align-items:center;justify-content:flex-end;gap:6px!important;height:30px;margin:0;padding:0}
+#sequence .sequence-actions>button,#sequence .sequence-actions .sequence-rename,#sequence .sequence-actions .sequence-copy,#sequence .sequence-actions .sequence-delete{box-sizing:border-box;display:inline-grid!important;flex:0 0 28px!important;place-items:center;width:28px!important;min-width:28px!important;height:28px!important;min-height:28px!important;margin:0!important;padding:0!important;border:1px solid #d5dee7!important;border-radius:6px!important;background:#fff!important;color:#425a70!important;line-height:1!important;font-size:15px!important;vertical-align:middle}
+#sequence .sequence-actions>button:hover,#sequence .sequence-actions>button:focus-visible{border-color:var(--teal)!important;color:var(--teal)!important;outline:none}
+#sequence .sequence-actions>.sequence-delete:hover,#sequence .sequence-actions>.sequence-delete:focus-visible{border-color:#dc6565!important;background:#fff4f3!important;color:#b42318!important}
+@media(max-width:760px){.nav button,.nav button:not(.active){display:grid!important;grid-template-columns:14px max-content;column-gap:4px!important;width:auto;min-height:40px;padding:9px 11px}.nav .nav-archive{margin-top:0}}
