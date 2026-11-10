@@ -237,16 +237,16 @@ body.map-view-active{height:100dvh;overflow:hidden}body.map-view-active .content
 .site-map-surface{position:relative;display:block;width:max-content;height:max-content;max-width:none;max-height:none;line-height:0}
 .site-map-surface canvas{position:relative;z-index:0;display:block;max-width:none;max-height:none;transform-origin:center center;box-shadow:0 2px 12px #10263d22}
 #siteMapOverlay{position:absolute;z-index:1;left:0;top:0;display:block;overflow:visible;transform-origin:center center;pointer-events:none}
-#siteMapOverlay .map-zone polygon{fill:none;stroke:#193b5b;stroke-width:4;vector-effect:non-scaling-stroke;pointer-events:none}
+#siteMapOverlay .map-zone polygon{fill:none;stroke:#193b5b;stroke-width:2.8;vector-effect:non-scaling-stroke;pointer-events:none
 #siteMapOverlay .map-zone line{stroke:#193b5b;stroke-width:2;vector-effect:non-scaling-stroke;pointer-events:none}
 #siteMapOverlay .map-zone rect{fill:#fff;fill-opacity:.94;stroke:#193b5b;stroke-width:1.5;vector-effect:non-scaling-stroke}
 #siteMapOverlay .map-zone text{fill:#122b43;font:700 16px Segoe UI,Arial,sans-serif;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
-#siteMapOverlay .map-block{pointer-events:all;cursor:pointer;stroke:#fff;stroke-width:2.5;vector-effect:non-scaling-stroke;fill-opacity:.42;transition:fill-opacity .12s,stroke-width .12s}
-#siteMapOverlay .map-block:hover,#siteMapOverlay .map-block:focus{fill-opacity:.7;stroke:#102d48;stroke-width:4;outline:none}
+#siteMapOverlay .map-block{pointer-events:all;cursor:pointer;stroke:#fff;stroke-width:1.5;vector-effect:non-scaling-stroke;fill-opacity:.22;transition:fill-opacity .12s,stroke-width .12s}
+#siteMapOverlay .map-block:hover,#siteMapOverlay .map-block:focus{fill-opacity:.38;stroke:#102d48;stroke-width:2.6;outline:none}
 #siteMapOverlay .map-block.not-started{fill:#8998a5;stroke:#fff}
 #siteMapOverlay .map-block.ongoing{fill:#d64646;stroke:#fff}
 #siteMapOverlay .map-block.complete{fill:#15956e;stroke:#fff}
-#siteMapOverlay .map-block.selected{stroke:#0b8990;stroke-width:5;fill-opacity:.68}
+#siteMapOverlay .map-block.selected{stroke:#0b8990;stroke-width:3.2;fill-opacity:.38}
 .site-map-popup-host{position:absolute;z-index:4;max-width:min(370px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:auto;filter:drop-shadow(0 8px 24px #10263d30)}
 .map-info-card{position:relative;width:min(350px,calc(100vw - 44px));padding:18px;background:#fff;border:1px solid #d7e1e8;border-radius:12px;color:#102b45;box-shadow:0 8px 25px #10263d22}
 .map-info-close{position:absolute;right:10px;top:8px;width:32px;height:32px;border:0;border-radius:7px;background:transparent;color:#52677b;font-size:22px;cursor:pointer}

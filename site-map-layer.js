@@ -1,25 +1,25 @@
 /* SitePlan interactive map: the converted SVG contains the drawing and clickable house blocks together. */
 const SITE_MAP_VIEWBOX={width:1888,height:1333};
-const SITE_MAP_ZONES=[{"name":"Zone A - 1-8 Belvedere Close","lines":["Zone A · 1–8","Belvedere Close"],"points":"740,900 840,780 1060,980 940,1100","label":{"x":690,"y":1110,"anchor":"end"},"labelTarget":{"x":740,"y":900}},{"name":"Zone B - 14-21 Belvedere Walk","lines":["Zone B · 14–21","Belvedere Walk"],"points":"840,780 930,650 1160,870 1060,980","label":{"x":1180,"y":835,"anchor":"start"},"labelTarget":{"x":1160,"y":870}},{"name":"Zone C - 8-13 Belvedere Walk","lines":["Zone C · 8–13","Belvedere Walk"],"points":"880,560 960,420 1080,540 1160,640 1060,740","label":{"x":870,"y":410,"anchor":"end"},"labelTarget":{"x":960,"y":420}},{"name":"Zone D - 25-32 Belvedere Way","lines":["Zone D · 25–32","Belvedere Way"],"points":"1080,540 1200,300 1360,380 1180,620","label":{"x":1400,"y":180,"anchor":"start"},"labelTarget":{"x":1360,"y":380}},{"name":"Zone E - 30-34 Belvedere Avenue","lines":["Zone E · 30–34","Belvedere Avenue"],"points":"930,450 1040,250 1200,340 1080,520","label":{"x":780,"y":240,"anchor":"end"},"labelTarget":{"x":930,"y":450}}];
+const SITE_MAP_ZONES=[{"name":"Zone A - 1-8 Belvedere Close","lines":["Zone A · 1–8","Belvedere Close"],"points":"747,902 866,809 1060,974 803,1094","label":{"x":640,"y":1122,"anchor":"end"},"labelTarget":{"x":748,"y":1040}},{"name":"Zone B - 14-21 Belvedere Walk","lines":["Zone B · 14–21","Belvedere Walk"],"points":"865,784 955,708 1168,884 1060,974","label":{"x":1180,"y":835,"anchor":"start"},"labelTarget":{"x":1160,"y":870}},{"name":"Zone C - 8-13 Belvedere Walk","lines":["Zone C · 8–13","Belvedere Walk"],"points":"883,538 960,420 1082,539 1176,639 1074,740","label":{"x":842,"y":390,"anchor":"end"},"labelTarget":{"x":884,"y":538}},{"name":"Zone D - 25-32 Belvedere Way","lines":["Zone D · 25–32","Belvedere Way"],"points":"1082,539 1193,337 1355,375 1176,639","label":{"x":1405,"y":300,"anchor":"start"},"labelTarget":{"x":1355,"y":375}},{"name":"Zone E - 30-34 Belvedere Avenue","lines":["Zone E · 30–34","Belvedere Avenue"],"points":"930,450 1040,250 1200,340 1080,520","label":{"x":870,"y":330,"anchor":"end"},"labelTarget":{"x":930,"y":450}}];
 const SITE_MAP_BLOCKS=[
- {key:'A-01-02',name:'1/2 Belvedere Close',zone:'Zone A',points:'790,842 857,825 895,879 838,927'},
- {key:'A-03-04',name:'3/4 Belvedere Close',zone:'Zone A',points:'850,908 914,892 950,947 884,999'},
- {key:'A-05-06',name:'5/6 Belvedere Close',zone:'Zone A',points:'912,969 974,952 1010,1014 947,1067'},
- {key:'A-07-08',name:'7/8 Belvedere Close',zone:'Zone A',points:'970,1029 1028,1011 1065,1071 1007,1125'},
- {key:'B-14-15',name:'14/15 Belvedere Walk',zone:'Zone B',points:'923,719 981,694 1022,751 963,789'},
- {key:'B-16-17',name:'16/17 Belvedere Walk',zone:'Zone B',points:'973,778 1030,755 1072,813 1015,850'},
- {key:'B-18-19',name:'18/19 Belvedere Walk',zone:'Zone B',points:'1028,838 1086,816 1127,874 1068,913'},
- {key:'B-20-21',name:'20/21 Belvedere Walk',zone:'Zone B',points:'1080,897 1139,874 1181,932 1122,970'},
- {key:'C-08-09',name:'8/9 Belvedere Walk',zone:'Zone C',points:'1060,617 1116,593 1156,648 1100,685'},
- {key:'C-10-11',name:'10/11 Belvedere Walk',zone:'Zone C',points:'990,556 1047,531 1088,587 1032,625'},
- {key:'C-12-13',name:'12/13 Belvedere Walk',zone:'Zone C',points:'923,493 980,468 1021,524 965,562'},
- {key:'D-25-26',name:'25/26 Belvedere Way',zone:'Zone D',points:'1210,315 1272,330 1307,388 1246,415'},
- {key:'D-27-28',name:'27/28 Belvedere Way',zone:'Zone D',points:'1172,396 1233,412 1264,470 1205,495'},
- {key:'D-29-30',name:'29/30 Belvedere Way',zone:'Zone D',points:'1140,472 1200,487 1235,545 1176,572'},
- {key:'D-31-32',name:'31/32 Belvedere Way',zone:'Zone D',points:'1100,544 1160,560 1194,618 1135,644'},
- {key:'E-30-31',name:'30/31 Belvedere Avenue',zone:'Zone E',points:'1010,270 1072,287 1110,343 1048,368'},
- {key:'E-32-33',name:'32/33 Belvedere Avenue',zone:'Zone E',points:'980,348 1042,364 1080,422 1018,447'},
- {key:'E-34',name:'34 Belvedere Avenue',zone:'Zone E',points:'944,420 1006,438 1043,495 981,520'}
+ {key:'A-01-02',name:'1/2 Belvedere Close',zone:'Zone A',points:'781,831 869,861 835,899 772,871'},
+ {key:'A-03-04',name:'3/4 Belvedere Close',zone:'Zone A',points:'833,882 914,910 874,956 802,929'},
+ {key:'A-05-06',name:'5/6 Belvedere Close',zone:'Zone A',points:'881,927 958,957 922,1003 858,972'},
+ {key:'A-07-08',name:'7/8 Belvedere Close',zone:'Zone A',points:'927,978 1004,1008 967,1055 900,1024'},
+ {key:'B-14-15',name:'14/15 Belvedere Walk',zone:'Zone B',points:'900,704 966,709 987,737 944,767 895,739'},
+ {key:'B-16-17',name:'16/17 Belvedere Walk',zone:'Zone B',points:'954,758 1015,766 1037,794 991,829 949,796'},
+ {key:'B-18-19',name:'18/19 Belvedere Walk',zone:'Zone B',points:'1007,815 1070,822 1090,851 1040,886 1001,853'},
+ {key:'B-20-21',name:'20/21 Belvedere Walk',zone:'Zone B',points:'1058,868 1124,879 1141,907 1093,941 1052,912'},
+ {key:'C-08-09',name:'8/9 Belvedere Walk',zone:'Zone C',points:'1052,610 1110,611 1135,643 1091,674 1049,648'},
+ {key:'C-10-11',name:'10/11 Belvedere Walk',zone:'Zone C',points:'1010,554 1074,549 1095,576 1050,609 1004,584'},
+ {key:'C-12-13',name:'12/13 Belvedere Walk',zone:'Zone C',points:'961,493 1027,485 1047,513 1006,539 958,522'},
+ {key:'D-25-26',name:'25/26 Belvedere Way',zone:'Zone D',points:'1218,321 1270,329 1291,377 1242,405'},
+ {key:'D-27-28',name:'27/28 Belvedere Way',zone:'Zone D',points:'1185,403 1233,413 1252,457 1204,484'},
+ {key:'D-29-30',name:'29/30 Belvedere Way',zone:'Zone D',points:'1158,480 1203,491 1221,535 1175,563'},
+ {key:'D-31-32',name:'31/32 Belvedere Way',zone:'Zone D',points:'1121,547 1164,560 1182,602 1134,630'},
+ {key:'E-30-31',name:'30/31 Belvedere Avenue',zone:'Zone E',points:'1002,272 1061,287 1091,333 1047,354'},
+ {key:'E-32-33',name:'32/33 Belvedere Avenue',zone:'Zone E',points:'978,353 1031,369 1059,408 1016,436'},
+ {key:'E-34',name:'34 Belvedere Avenue',zone:'Zone E',points:'950,422 997,439 1023,483 981,506'}
 ];
 let siteMapPopupBlockKey=null;
 const mapEsc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
