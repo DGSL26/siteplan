@@ -345,3 +345,5 @@ body.map-view-active .site-map-canvas-stage{flex:1 1 auto;min-height:0;height:au
 #sequence [data-complete="true"]:before{background:#8796a4!important;color:#fff!important}
 #sequence [data-complete="true"] small{color:#647382!important}
 #sequence [data-complete="true"] .sequence-completed-label{color:#526170!important;font-weight:700}
+#subcontractor-context-menu{position:fixed;right:auto;top:auto;z-index:5000;width:190px}
+.custom-delay-reason{display:block;box-sizing:border-box;width:100%;margin-top:7px;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);font:inherit;font-size:13px}
