@@ -313,11 +313,11 @@ body.map-view-active .site-map-canvas-stage{flex:1 1 auto;min-height:0;height:au
 #siteMapBaseImage{position:absolute;z-index:0;display:block;width:1888px;height:1333px;max-width:none;max-height:none;transform-origin:center center;pointer-events:none;user-select:none}
 .site-map-drawing #siteMapSvg{position:absolute;z-index:1;left:50%;top:50%;display:block;width:1888px;height:1333px;max-width:none;max-height:none;overflow:visible;transform-origin:center center;pointer-events:auto}
 #siteMapSvg #originalPlan{pointer-events:none}
-#siteMapSvg .map-block{pointer-events:all;cursor:pointer;stroke:#fff;stroke-width:2;vector-effect:non-scaling-stroke;fill-opacity:.3;transition:fill-opacity .12s,stroke-width .12s}
+#siteMapSvg .map-block{pointer-events:all!important;cursor:pointer;stroke:#fff;stroke-width:2;vector-effect:non-scaling-stroke;fill-opacity:.44;transition:fill-opacity .12s,stroke-width .12s}
 #siteMapSvg .map-block.not-started{fill:#8897a5;stroke:#fff}
 #siteMapSvg .map-block.ongoing{fill:#d9534f;stroke:#fff}
 #siteMapSvg .map-block.complete{fill:#15956e;stroke:#fff}
-#siteMapSvg .map-block:hover,#siteMapSvg .map-block:focus{fill-opacity:.52;stroke:#102d48;stroke-width:3;outline:none}
+#siteMapSvg .map-block:hover,#siteMapSvg .map-block:focus{fill-opacity:.64;stroke:#102d48;stroke-width:3;outline:none}
 #siteMapSvg .map-block.selected{stroke:#07858c;stroke-width:4;fill-opacity:.58}
 .site-map-canvas-stage.dragging #siteMapSvg{cursor:grabbing!important}
 .site-map-popup-host{z-index:5;overflow:auto;overscroll-behavior:contain;filter:drop-shadow(0 8px 24px #10263d30)}
