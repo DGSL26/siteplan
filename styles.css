@@ -309,3 +309,19 @@ body.map-view-active .site-map-canvas-stage{flex:1 1 auto;min-height:0;height:au
 #sequence .sequence-task-link.completed,#sequence .sequence-task-link.completed:hover,#sequence .sequence-task-link.completed:focus-visible,#sequence .sequence-task-link.completed.active{background:#f1f3f5;border-color:#d2d8de;color:#697586;filter:grayscale(1);opacity:.82;transform:none}
 #sequence .sequence-task-link.completed:before,#sequence .sequence-task-link.completed.active:before{background:#98a2ad;color:#fff}
 #sequence .sequence-completed-label{color:#75808d;font-weight:700}
+
+/* Consistent sequence tools, completed cards, and sidebar navigation alignment. */
+#sequence .sequence-separator{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;min-height:38px;padding:6px 8px}
+#sequence .sequence-separator>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.3}
+#sequence .sequence-actions{display:flex!important;flex:0 0 auto;align-items:center;justify-content:flex-end;gap:5px;height:auto}
+#sequence .sequence-actions button{box-sizing:border-box;display:grid;flex:0 0 28px;place-items:center;width:28px;min-width:28px;height:28px;min-height:28px;margin:0;padding:0;border:1px solid #d5dee7;border-radius:6px;background:#fff;color:#425a70;line-height:1;font-size:15px;vertical-align:middle}
+#sequence .sequence-actions button:hover,#sequence .sequence-actions button:focus-visible{border-color:var(--teal);color:var(--teal);outline:none}
+#sequence .sequence-actions .sequence-delete:hover,#sequence .sequence-actions .sequence-delete:focus-visible{border-color:#dc6565;background:#fff4f3;color:#b42318}
+#sequence .sequence-task-link.completed,#sequence .sequence-task-link.completed:hover,#sequence .sequence-task-link.completed:focus-visible,#sequence .sequence-task-link.completed.active{background:#e8edf1!important;border-color:#c6d0d9!important;color:#5e6b78!important;filter:grayscale(1);opacity:.92;transform:none;box-shadow:none}
+#sequence .sequence-task-link.completed:before,#sequence .sequence-task-link.completed.active:before{background:#8796a4!important;color:#fff}
+#sequence .sequence-task-link.completed small{color:#687786}
+#sequence .sequence-task-link.completed .sequence-completed-label{color:#526170;font-weight:700}
+.nav button{display:flex;align-items:center;gap:11px;width:100%;min-height:44px;padding:11px 14px;text-align:left}
+.nav .nav-icon{display:inline-grid;flex:0 0 16px;width:16px;place-items:center;text-align:center;line-height:1}
+.nav .nav-archive{margin-top:auto;padding:11px 14px;color:#8095a8;background:transparent;font-size:14px}
+@media(max-width:760px){.nav button,.nav button:not(.active){display:flex;align-items:center;white-space:nowrap;padding:9px 11px}.nav .nav-archive{margin-top:0}}

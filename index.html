@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SitePlan — Knocksedan PH3</title>
-<link rel="stylesheet" href="styles.css?v=20261110-complete-sequence-overview"></head>
+<link rel="stylesheet" href="styles.css?v=20261110-align-complete-cards"></head>
 <body><div class="app">
 <aside class="sidebar"><div class="brand">◈ SitePlan</div><nav class="nav">
-<button data-view="overview" onclick="showView('overview')">▦ &nbsp; Overview</button>
-<button data-view="map" onclick="showView('map')">▧ &nbsp; Site map</button>
-<button class="active" data-view="subcontractors" onclick="showView('subcontractors')">♟ &nbsp; Subcontractors</button>
-<button data-view="links" onclick="showView('links')">↗ &nbsp; Trade links</button>
-<button data-view="friday" onclick="showView('friday')">▤ &nbsp; Email schedules</button>
-<button data-view="import" onclick="showView('import')">⇧ &nbsp; Import XML</button><button class="nav-archive" data-view="completed" onclick="showView('completed')">↻ &nbsp; Archive</button>
+<button data-view="overview" onclick="showView('overview')"><span class="nav-icon">▦</span><span>Overview</span></button>
+<button data-view="map" onclick="showView('map')"><span class="nav-icon">▧</span><span>Site map</span></button>
+<button class="active" data-view="subcontractors" onclick="showView('subcontractors')"><span class="nav-icon">♟</span><span>Subcontractors</span></button>
+<button data-view="links" onclick="showView('links')"><span class="nav-icon">↗</span><span>Trade links</span></button>
+<button data-view="friday" onclick="showView('friday')"><span class="nav-icon">▤</span><span>Email schedules</span></button>
+<button data-view="import" onclick="showView('import')"><span class="nav-icon">⇧</span><span>Import XML</span></button>
+<button class="nav-archive" data-view="completed" onclick="showView('completed')"><span class="nav-icon">↻</span><span>Archive</span></button>
 </nav></aside>
 <header class="top"><div class="project"><img class="company-logo" src="dgsl-logo.png" alt="DG Group logo"><strong id="projectName">Knocksedan PH3</strong></div><div class="topright"><span id="userEmail"></span><button class="btn" onclick="signOut()">Sign out</button></div></header>
 <section id="login" class="login"><form onsubmit="signIn(event)"><h1>Sign in to SitePlan</h1><p>Use an account approved for your project.</p><label>Email<input id="email" type="email" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><button class="btn primary" type="submit">Sign in</button></form></section>
