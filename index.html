@@ -14,7 +14,7 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
 #sequence .sequence-actions>button:last-child{margin-right:0!important}
 /* Phone and tablet layout: compact header, only two navigation tabs, one focused panel. */
 @media (max-width:900px), (max-device-width:1024px), (hover:none) and (pointer:coarse){
-  html,body{width:100%;min-height:100%;overflow-x:hidden}
+  html,body{width:100%;min-height:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body .app{display:flex!important;flex-direction:column!important;min-height:100dvh;height:auto;overflow:visible}
   body .top{order:1;margin:0;width:100%;height:62px;min-height:62px;padding:0 12px;gap:8px}
   body .project{gap:8px;min-width:0}
@@ -31,6 +31,7 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
   body .nav button .nav-icon{display:inline-grid!important;flex:0 0 16px;width:16px;min-width:16px;place-items:center;margin:0 7px 0 0}
   body main.content{order:3;margin:0;width:100%;height:auto;min-height:0;padding:12px 10px 24px;overflow:visible;display:block}
   body #mainGrid:not(.hidden){display:block;height:auto;overflow:visible}
+  body #mainGrid.hidden,body #extraView.hidden{display:none!important}
   body #mainGrid>.panel{height:auto;min-height:0;overflow:visible;margin:0}
   body #mainGrid>.right{display:none!important}
   body #mainGrid>.sched{display:none!important;padding:14px}
@@ -47,7 +48,7 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
   body .company .cinfo small{font-size:12px}
   body .company .avatar{width:38px;height:38px}
   body .company .reorder-handle,body .company .company-menu,body .company .drag-handle{display:none!important}
-  body .mobile-sub-back{display:inline-flex;margin:0 0 10px;align-items:center;min-height:40px}
+  body .mobile-sub-back{display:none!important}
   body .schedhead{display:block;margin:0 0 10px}
   body .schedhead h1{font-size:20px;margin:0}
   body .schedhead .sub,body .schedhead .pdf-buttons,body #dateRange,body .controls{display:none!important}
@@ -73,16 +74,22 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
   body .summary-cards span{margin-top:5px;font-size:11px}
   body .area-outlook{margin:0}
   body .area-outlook h2{margin:0 0 9px;font-size:18px}
-  body .area-outlook-table{overflow:visible}
+  body .area-outlook-table{display:grid;gap:9px;overflow:visible;border:0;background:transparent}
   body .area-outlook-head{display:none}
-  body .area-outlook-row{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;min-width:0;padding:12px}
-  body .area-outlook-row>b{grid-column:1/-1;font-size:13px}
-  body .area-outlook-row>span,body .area-outlook-row>strong{font-size:11px;line-height:1.35;overflow-wrap:anywhere}
-  body .area-outlook-row>span:nth-of-type(1)::before{content:'Tasks complete: ';color:var(--muted)}
-  body .area-outlook-row>span:nth-of-type(2)::before{content:'Original: ';color:var(--muted)}
-  body .area-outlook-row>span:nth-of-type(3)::before{content:'Forecast: ';color:var(--muted)}
-  body .area-outlook-row>strong::before{content:'Variance: ';color:var(--muted);font-weight:400}
+  body .area-outlook-row{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;min-width:0;padding:13px 14px;border:1px solid var(--line);border-radius:9px;background:#fff;box-shadow:0 2px 7px #18304708}
+  body .area-outlook-row>b{font-size:14px;line-height:1.35;margin-bottom:2px;overflow-wrap:anywhere}
+  body .area-outlook-row>span{font-size:12px;line-height:1.4;color:var(--muted);overflow-wrap:anywhere}
+  body .area-outlook-row>strong{justify-self:start;margin-top:2px;padding:4px 8px;border-radius:999px;background:#f1f5f9;font-size:11px;line-height:1.3;overflow-wrap:anywhere}
+  body .area-outlook-row>strong.variance-late{background:#fff0ed;color:#b42318}
+  body .area-outlook-row>strong.variance-early{background:#eaf7ef;color:#087443}
   body .issue,body .loading{display:none!important}
+  body button,body .company{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  body input,body select,body textarea{font-size:16px!important}
+}
+@media (max-width:600px), (max-device-width:600px){
+  body .top{height:76px;min-height:76px}
+  body .company-logo{width:96px;height:42px}
+  body .project strong{font-size:20px}
 }
 </style></head>
 <body><div class="app">
@@ -95,12 +102,12 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
 <button data-view="import" onclick="showView('import')"><span class="nav-icon">⇧</span><span>Import XML</span></button>
 <button class="nav-archive" data-view="completed" onclick="showView('completed')"><span class="nav-icon">↻</span><span>Archive</span></button>
 </nav></aside>
-<header class="top"><div class="project"><img class="company-logo" src="dgsl-logo.png" alt="DG Group logo"><strong id="projectName">Knocksedan PH3</strong></div><div class="topright"><button class="btn mobile-email-entry" type="button" onclick="showView('friday')">Email schedules</button><span id="userEmail"></span><button class="btn" onclick="signOut()">Sign out</button></div></header>
+<header class="top"><div class="project"><img class="company-logo" src="dgsl-logo.png" alt="DG Group logo"><strong id="projectName">Knocksedan PH3</strong></div><div class="topright"><span id="userEmail"></span><button class="btn" onclick="signOut()">Sign out</button></div></header>
 <section id="login" class="login"><form onsubmit="signIn(event)"><h1>Sign in to SitePlan</h1><p>Use an account approved for your project.</p><label>Email<input id="email" type="email" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><button class="btn primary" type="submit">Sign in</button></form></section>
 <div id="appToast" class="app-toast hidden" role="status" aria-live="polite"></div><div id="loading" class="loading hidden">Loading shared schedules…</div>
 <main class="content"><div class="grid" id="mainGrid">
 <section class="panel listpanel"><div class="section-head"><h2>Subcontractors</h2><button class="btn" onclick="addSub()">+ Add</button></div><input class="filter" id="filter" placeholder="Search subcontractors…" oninput="filterCompanies()"><div class="companies" id="companies"></div></section>
-<section class="panel sched"><button class="btn mobile-sub-back" type="button" onclick="showMobileSubList()">‹ &nbsp; All subcontractors</button><div class="schedhead"><div><h1 id="companyTitle">Select a subcontractor</h1><div class="sub">Full schedule · <span id="taskCount">0</span> tasks</div></div><div class="pdf-buttons"><button class="btn" onclick="printCompany()">View PDF</button><button class="btn" onclick="downloadCompanyPdf()">Download PDF</button></div></div><div class="controls"><span id="dateRange" class="date">Schedule dates</span><div class="view-toggle"><button id="listViewButton" class="btn active" onclick="setScheduleView('list')">☷ List</button><button id="timelineViewButton" class="btn" onclick="setScheduleView('timeline')">▥ Timeline</button></div><button class="btn primary" onclick="addTask()">+ Add task</button></div><div id="schedule"></div></section>
+<section class="panel sched"><div class="schedhead"><div><h1 id="companyTitle">Select a subcontractor</h1><div class="sub">Full schedule · <span id="taskCount">0</span> tasks</div></div><div class="pdf-buttons"><button class="btn" onclick="printCompany()">View PDF</button><button class="btn" onclick="downloadCompanyPdf()">Download PDF</button></div></div><div class="controls"><span id="dateRange" class="date">Schedule dates</span><div class="view-toggle"><button id="listViewButton" class="btn active" onclick="setScheduleView('list')">☷ List</button><button id="timelineViewButton" class="btn" onclick="setScheduleView('timeline')">▥ Timeline</button></div><button class="btn primary" onclick="addTask()">+ Add task</button></div><div id="schedule"></div></section>
 <section class="panel right"><h2>Linked trade sequence</h2><div class="linknote">Date changes update following trades</div><div id="sequence"></div><div class="impact" id="impact">Select a task to see linked work.</div><button class="btn footerbtn" onclick="showView('links')">↗ &nbsp; View all trade links</button></section>
 </div><section id="extraView" class="panel extra-view hidden"></section></main></div>
 <div class="overlay" id="formOverlay" onclick="if(event.target===this)closeForm()"><section class="modal form-modal"><div class="modal-head"><div><h2 id="formTitle">Add task</h2><p id="formSubtitle" class="sub">Enter the schedule details.</p></div><button class="icon-btn close-btn" type="button" onclick="closeForm()" aria-label="Close">×</button></div><form id="scheduleForm" onsubmit="saveForm(event)"><div id="formFields" class="form-fields"></div><div class="modalactions"><button class="btn" type="button" onclick="closeForm()">Cancel</button><button class="btn primary" type="submit">Save</button></div></form></section></div>
@@ -108,6 +115,6 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
 <div class="overlay" id="recipientOverlay" onclick="if(event.target===this)closeRecipientManager()"><section class="modal recipient-modal"><div class="modal-head"><div><h2>Edit email recipients</h2><p class="sub">Choose which subcontractor schedule each contact receives. A contact can have a separate row for each schedule.</p></div><button class="icon-btn close-btn" type="button" onclick="closeRecipientManager()" aria-label="Close">×</button></div><div class="recipient-toolbar"><p id="recipientHelp" class="email-account-help">Recipients are sent an individual email with the assigned schedule PDF.</p><button class="btn" type="button" onclick="importRecipientList()">Import supplied recipient list</button></div><div class="recipient-table-wrap"><div class="recipient-table-head"><span>Recipient</span><span>Email address</span><span>Send this PDF</span><span></span></div><div id="recipientRows"></div></div><button class="btn recipient-add" type="button" onclick="addRecipientDraft()">+ Add recipient</button><section class="cc-manager-section"><div><h3>CC recipients</h3><p>These contacts are available to CC on any email batch.</p></div><div class="recipient-table-head cc-manager-head"><span>Recipient</span><span>Email address</span><span></span></div><div id="ccRecipientRows"></div><button class="btn recipient-add" type="button" onclick="addCcRecipientDraft()">+ Add CC recipient</button></section><p id="recipientStatus" class="email-status" role="status" aria-live="polite"></p><div class="modalactions"><button class="btn" type="button" onclick="closeRecipientManager()">Cancel</button><button class="btn primary" type="button" onclick="saveRecipientManager()">Save recipients</button></div></section></div>
 <div class="overlay" id="housePickerOverlay" onclick="if(event.target===this)closeHousePicker()"><section class="modal house-picker-modal" role="dialog" aria-modal="true" aria-labelledby="housePickerTitle"><div class="modal-head"><div><h2 id="housePickerTitle">Choose house block(s)</h2><p class="sub">Select one or more blocks in the same zone. Click a selected block again to remove it.</p></div><button class="icon-btn close-btn" type="button" onclick="closeHousePicker()" aria-label="Close">×</button></div><p id="housePickerStatus" class="email-account-help" role="status" aria-live="polite">Loading site layout…</p><div id="housePickerMap" class="house-picker-map"></div><div class="modalactions"><button class="btn" type="button" onclick="closeHousePicker()">Done</button></div></section></div>
 <div class="toast" id="toast"></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://unpkg.com/jspdf@4.2.1/dist/jspdf.umd.min.js"></script><script src="https://alcdn.msauth.net/browser/2.35.0/js/msal-browser.min.js"></script><script src="supabase-config.js"></script><script src="mail-config.js"></script><script src="app.js?v=20261111-mobile-two-tabs-v3"></script><script src="site-map-layer.js?v=20261111-mobile-focus-v2"></script><script src="site-map-editor.js?v=20261111-mobile-focus-v2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://unpkg.com/jspdf@4.2.1/dist/jspdf.umd.min.js"></script><script src="https://alcdn.msauth.net/browser/2.35.0/js/msal-browser.min.js"></script><script src="supabase-config.js"></script><script src="mail-config.js"></script><script src="app.js?v=20261111-mobile-overview-v5"></script><script src="site-map-layer.js?v=20261111-mobile-focus-v2"></script><script src="site-map-editor.js?v=20261111-mobile-focus-v2"></script>
 </body></html>
 
