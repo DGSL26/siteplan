@@ -3,7 +3,7 @@
   <filter id="softZoneColours" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="gamma" amplitude="1" exponent="0.55" offset="0"/><feFuncG type="gamma" amplitude="1" exponent="0.55" offset="0"/><feFuncB type="gamma" amplitude="1" exponent="0.55" offset="0"/></feComponentTransfer></filter>
   <mask id="zoneColourMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1888" height="1333"><rect width="1888" height="1333" fill="black"/><polygon fill="white" points="747,902 866,809 1060,974 803,1094"/><polygon fill="white" points="865,784 955,708 1168,884 1060,974"/><polygon fill="white" points="883,538 960,420 1082,539 1176,639 1074,740"/><polygon fill="white" points="1082,539 1193,337 1355,375 1176,639"/><polygon fill="white" points="930,450 1040,250 1200,340 1080,520"/></mask>
 </defs>
-<image id="originalPlan" x="0" y="0" width="1888" height="1333" preserveAspectRatio="none" filter="url(#softZoneColours)" href="assets/site-map.jpg"/>
+<image id="originalPlan" x="0" y="0" width="1888" height="1333" preserveAspectRatio="none" filter="url(#softZoneColours)" href="assets/site-map-cad.svg?v=20261111-vector-map"/>
 <!-- Keep the map drawing, house totals and open-space box; clear only its legend and lower-right title box. --><!-- Replace old drawing labels with the editable zone labels below. -->
 
 <rect x="28" y="575" width="235" height="610" fill="white"/>
