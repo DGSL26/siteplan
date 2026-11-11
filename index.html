@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SitePlan — Knocksedan PH3</title>
-<link rel="stylesheet" href="styles.css?v=20261111-phone-layout-v4"><style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="format-detection" content="telephone=no,address=no,email=no,date=no"><title>SitePlan — Knocksedan PH3</title>
+<link rel="stylesheet" href="styles.css?v=20261111-phone-layout-v5"><style>
 aside.sidebar .nav button,aside.sidebar .nav button:not(.active){display:flex!important;flex-direction:row!important;align-items:center!important;gap:8px!important;justify-content:flex-start!important}
 aside.sidebar .nav .nav-icon{display:inline-grid!important;flex:0 0 16px!important;width:16px!important;min-width:16px!important;height:18px!important;margin:0!important;padding:0!important;place-items:center!important;text-align:center!important;line-height:1!important}
 aside.sidebar .nav button>span:last-child{display:inline-block!important;flex:0 1 auto!important;min-width:0!important;margin:0!important;padding:0!important}
@@ -65,6 +65,12 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
   body .task-row>span:nth-child(5),body .task-row>.days-delayed,body .task-row .task-actions{display:none!important}
   body .schedule-table-scroll{max-height:none;overflow:visible}
   body .zone{margin:14px 0 6px;padding:8px 9px;background:#eef3f6;border-radius:6px;font-size:13px}
+  body #schedule,body .schedule-table-scroll,body .zone,body .task-row,body .task-name{box-sizing:border-box;width:100%;max-width:100%;min-width:0}
+  body .zone{align-items:flex-start;gap:8px;line-height:1.35;overflow-wrap:anywhere}
+  body .zone>small{flex:0 0 auto;white-space:nowrap;margin-left:auto;padding-left:4px}
+  body .task-row>*{min-width:0}
+  body .task-row .task-name strong,body .task-row .task-name small{overflow-wrap:anywhere;word-break:normal}
+  body .task-date-stack .actual-date{white-space:normal;overflow-wrap:anywhere}
   body #extraView:not(.hidden){display:block;width:100%;height:auto;min-height:0;padding:0;border:0;background:transparent;box-shadow:none;overflow:visible}
   body .overview-title,body .overview-section-head,body .overview-gantt-scroll,body .overview-row,body .extra-view>h2{display:none!important}
   body .summary-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:0 0 14px}
@@ -87,16 +93,21 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
   body input,body select,body textarea{font-size:16px!important}
 }
 @media (max-width:600px), (max-device-width:600px){
-  body .top{height:76px;min-height:76px}
-  body .company-logo{width:96px;height:42px}
-  body .project strong{font-size:20px}
+  body .top{height:88px;min-height:88px;padding:0 10px;gap:6px}
+  body .project{gap:9px;flex:1 1 auto;min-width:0}
+  body .company-logo{width:112px;height:50px;object-fit:contain;flex:0 0 auto}
+  body .project strong{flex:1 1 0;min-width:0;font-size:22px;line-height:1.08;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+  body .topright{flex:0 0 auto}
+  body .topright>.btn{min-height:40px;padding:7px 9px;font-size:12px}
+  body.mobile-sub-detail .mobile-sub-back{display:inline-flex!important;align-items:center;gap:7px;min-height:40px;margin:0 0 10px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;cursor:pointer}
+  body.mobile-sub-detail .mobile-sub-back:active{background:#eef5f7}
 }
 </style></head>
 <body><div class="app">
 <aside class="sidebar"><div class="brand">◈ SitePlan</div><nav class="nav">
 <button data-view="overview" onclick="showView('overview')"><span class="nav-icon">▦</span><span>Overview</span></button>
 <button data-view="map" onclick="showView('map')"><span class="nav-icon">▧</span><span>Site map</span></button>
-<button class="active" data-view="subcontractors" onclick="showView('subcontractors')"><span class="nav-icon">♟</span><span>Subcontractors</span></button>
+<button class="active" data-view="subcontractors" onclick="showView('subcontractors')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0v2H4z"/><path d="M12 5v8M3 15h18M7 19h10l2 2H5z"/></svg></span><span>Subcontractors</span></button>
 <button data-view="links" onclick="showView('links')"><span class="nav-icon">↗</span><span>Trade links</span></button>
 <button data-view="friday" onclick="showView('friday')"><span class="nav-icon">▤</span><span>Email schedules</span></button>
 <button data-view="import" onclick="showView('import')"><span class="nav-icon">⇧</span><span>Import XML</span></button>
@@ -107,7 +118,7 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
 <div id="appToast" class="app-toast hidden" role="status" aria-live="polite"></div><div id="loading" class="loading hidden">Loading shared schedules…</div>
 <main class="content"><div class="grid" id="mainGrid">
 <section class="panel listpanel"><div class="section-head"><h2>Subcontractors</h2><button class="btn" onclick="addSub()">+ Add</button></div><input class="filter" id="filter" placeholder="Search subcontractors…" oninput="filterCompanies()"><div class="companies" id="companies"></div></section>
-<section class="panel sched"><div class="schedhead"><div><h1 id="companyTitle">Select a subcontractor</h1><div class="sub">Full schedule · <span id="taskCount">0</span> tasks</div></div><div class="pdf-buttons"><button class="btn" onclick="printCompany()">View PDF</button><button class="btn" onclick="downloadCompanyPdf()">Download PDF</button></div></div><div class="controls"><span id="dateRange" class="date">Schedule dates</span><div class="view-toggle"><button id="listViewButton" class="btn active" onclick="setScheduleView('list')">☷ List</button><button id="timelineViewButton" class="btn" onclick="setScheduleView('timeline')">▥ Timeline</button></div><button class="btn primary" onclick="addTask()">+ Add task</button></div><div id="schedule"></div></section>
+<section class="panel sched"><button class="btn mobile-sub-back" type="button" onclick="showMobileSubList()">‹ <span>All subcontractors</span></button><div class="schedhead"><div><h1 id="companyTitle">Select a subcontractor</h1><div class="sub">Full schedule · <span id="taskCount">0</span> tasks</div></div><div class="pdf-buttons"><button class="btn" onclick="printCompany()">View PDF</button><button class="btn" onclick="downloadCompanyPdf()">Download PDF</button></div></div><div class="controls"><span id="dateRange" class="date">Schedule dates</span><div class="view-toggle"><button id="listViewButton" class="btn active" onclick="setScheduleView('list')">☷ List</button><button id="timelineViewButton" class="btn" onclick="setScheduleView('timeline')">▥ Timeline</button></div><button class="btn primary" onclick="addTask()">+ Add task</button></div><div id="schedule"></div></section>
 <section class="panel right"><h2>Linked trade sequence</h2><div class="linknote">Date changes update following trades</div><div id="sequence"></div><div class="impact" id="impact">Select a task to see linked work.</div><button class="btn footerbtn" onclick="showView('links')">↗ &nbsp; View all trade links</button></section>
 </div><section id="extraView" class="panel extra-view hidden"></section></main></div>
 <div class="overlay" id="formOverlay" onclick="if(event.target===this)closeForm()"><section class="modal form-modal"><div class="modal-head"><div><h2 id="formTitle">Add task</h2><p id="formSubtitle" class="sub">Enter the schedule details.</p></div><button class="icon-btn close-btn" type="button" onclick="closeForm()" aria-label="Close">×</button></div><form id="scheduleForm" onsubmit="saveForm(event)"><div id="formFields" class="form-fields"></div><div class="modalactions"><button class="btn" type="button" onclick="closeForm()">Cancel</button><button class="btn primary" type="submit">Save</button></div></form></section></div>
