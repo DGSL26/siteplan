@@ -10,7 +10,7 @@ const SITE_MAP_ZONES=[
  {name:'Zone E - 30-34 Belvedere Avenue',lines:['Zone E · 30–34','Belvedere Avenue'],label:{x:425,y:112,anchor:'end'},labelTarget:{x:437,y:160}}
 ];
 /* Clickable hit areas follow the semi-detached footprints visible in the CAD drawing. */
-const SITE_MAP_BLOCKS=[
+let SITE_MAP_BLOCKS=[
  {key:'A-01-02',name:'1/2 Belvedere Close',zone:'Zone A',points:'307,350 319,335 335,350 322,367'},
  {key:'A-03-04',name:'3/4 Belvedere Close',zone:'Zone A',points:'322,368 336,352 351,368 336,384'},
  {key:'A-05-06',name:'5/6 Belvedere Close',zone:'Zone A',points:'338,383 352,368 367,384 352,399'},
@@ -30,6 +30,9 @@ const SITE_MAP_BLOCKS=[
  {key:'E-32-33',name:'32/33 Belvedere Avenue',zone:'Zone E',points:'420,215 433,193 452,209 435,233'},
  {key:'E-34',name:'34 Belvedere Avenue',zone:'Zone E',points:'416,239 429,220 445,237 432,255'}
 ];
+const DEFAULT_SITE_MAP_BLOCKS=SITE_MAP_BLOCKS.map(block=>({...block}));
+window.setSiteMapBlockRows=function(rows){SITE_MAP_BLOCKS=Array.isArray(rows)&&rows.length?rows.map(row=>({key:String(row.block_key||row.key),name:String(row.name||row.block_key||row.key),zone:String(row.zone||'Zone A'),points:String(row.points||''),display_order:Number(row.display_order)||0})).filter(block=>block.key&&block.points).sort((a,b)=>a.display_order-b.display_order):DEFAULT_SITE_MAP_BLOCKS.map(block=>({...block}))};
+window.getSiteMapBlocks=function(){return SITE_MAP_BLOCKS};
 let siteMapPopupBlockKey=null;
 const mapEsc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 function taskMapBlockKeys(task){if(Array.isArray(task.map_block_keys))return task.map_block_keys;let taskZone=String(task.zone||'').match(/zone\s*([a-e])/i),range=String(task.title||'').match(/^\s*(\d+)\s*[-–\/]\s*(\d+)/);if(!taskZone||!range)return[];let from=Number(range[1]),to=Number(range[2]);return SITE_MAP_BLOCKS.filter(block=>{let zone=block.zone.match(/zone\s*([a-e])/i),r=block.name.match(/(\d+)\s*[–\/-]\s*(\d+)/),single=block.name.match(/^(\d+)\s/),start=r?Number(r[1]):single?Number(single[1]):null,end=r?Number(r[2]):start;return zone&&zone[1].toLowerCase()===taskZone[1].toLowerCase()&&start!==null&&from<=start&&to>=end}).map(block=>block.key)}
