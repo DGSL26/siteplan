@@ -517,7 +517,8 @@ body.map-view-active .map-editor-page{display:flex;flex-direction:column;gap:10p
 
 
 @media (min-width: 901px) and (hover: hover) and (pointer: fine){
-  #sequence .sequence-sortable{cursor:grab;user-select:none}
+  #sequence .sequence-sortable{cursor:grab;user-select:none;position:relative;padding-right:30px}
+  #sequence .sequence-sortable::after{content:'⠿';position:absolute;right:10px;top:50%;transform:translateY(-50%);color:#8a9aaa;font-size:18px;letter-spacing:-3px;pointer-events:none}
   #sequence .sequence-sortable:active{cursor:grabbing}
   #sequence .sequence-dragging{opacity:.42;box-shadow:0 0 0 2px #0f766e}
   #sequence .sequence-drop-before{border-top:3px solid #0f766e!important}
