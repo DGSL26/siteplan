@@ -536,3 +536,12 @@ body.map-view-active .map-editor-page{display:flex;flex-direction:column;gap:10p
 @media(max-width:760px){.settings-tabs{overflow-x:auto}.holiday-calendar-card,.holiday-range-form,.holiday-list{padding:12px}.holiday-day{min-height:64px;padding:5px}.holiday-marker{font-size:8px}.holiday-range-fields{grid-template-columns:1fr 1fr}.holiday-range-fields label:nth-child(3){grid-column:1/-1}.holiday-calendar-head{grid-template-columns:36px 1fr 36px}.holiday-calendar-head .holiday-today{grid-column:1/-1;margin:0}}
 
 .holiday-readonly-note{padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#f8fafc;color:var(--muted)}
+
+/* Phone-only share action beside the selected subcontractor title. */
+.mobile-schedule-title{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}
+.mobile-share-pdf{display:none}
+@media(max-width:600px) and (hover:none) and (pointer:coarse){
+  body .mobile-schedule-title{width:100%;gap:10px}
+  body .mobile-schedule-title h1{min-width:0;overflow-wrap:anywhere}
+  body .mobile-share-pdf{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;min-height:40px;padding:8px 12px;white-space:nowrap;font-size:13px}
+}
