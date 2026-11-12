@@ -105,7 +105,29 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
   body.mobile-sub-detail .mobile-sub-back{display:inline-flex!important;align-items:center;gap:7px;min-height:40px;margin:0 0 10px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;cursor:pointer}
   body.mobile-sub-detail .mobile-sub-back:active{background:#eef5f7}
 }
-</style></head>
+@media (max-width:600px), (max-device-width:600px){
+  body .task-row{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px 7px!important;padding:12px 10px 12px 12px!important;border-left:3px solid #b8cbd5!important;background:#fff;box-shadow:0 2px 8px #1830470b}
+  body .task-row .task-name{margin-bottom:3px;padding-bottom:9px;border-bottom:1px solid #e8edf1}
+  body .task-row .task-name strong{display:block;font-size:15px;line-height:1.35;font-weight:700;color:var(--ink)}
+  body .task-row .task-name small{font-size:12px;line-height:1.4;margin-top:5px;color:#64758a}
+  body .task-row>.task-date-stack,body .task-row>.duration-cell{box-sizing:border-box;min-width:0;min-height:58px;justify-content:flex-start;gap:4px;padding:8px 7px;border-radius:7px;background:#f5f8fa;color:var(--ink)}
+  body .task-row>.task-date-stack::before,body .task-row>.duration-cell::before{font-size:9px;line-height:1.2;letter-spacing:.05em;color:#697b8d}
+  body .task-row>.task-date-stack .actual-date{font-size:12px;line-height:1.35;font-weight:600;color:#263c50}
+  body .task-row>.task-date-stack small,body .task-row .duration-original{font-size:10px;line-height:1.3;color:#7c8996}
+  body .task-row .duration-current{display:flex;flex-wrap:wrap;align-items:baseline;gap:3px}
+  body .task-row .duration-current b{font-size:13px}
+  body .area-outlook-row[role="button"]{cursor:pointer;touch-action:manipulation;transition:border-color .15s,background-color .15s}
+  body .area-outlook-row[role="button"]:active{border-color:var(--teal);background:#f2fbfa}
+  body.mobile-sequence-detail #mainGrid>.listpanel,body.mobile-sequence-detail #mainGrid>.sched{display:none!important}
+  body.mobile-sequence-detail #mainGrid>.right{display:block!important;box-sizing:border-box;width:100%;height:auto;min-height:0;margin:0;padding:14px 12px;overflow:visible}
+  body.mobile-sequence-detail #mainGrid>.right h2{font-size:20px;margin:4px 0 5px}
+  body.mobile-sequence-detail .mobile-sequence-back{display:inline-flex!important;align-items:center;min-height:42px;margin:0 0 12px;padding:8px 12px}
+  body.mobile-sequence-detail .sequence-filter,body.mobile-sequence-detail .impact,body.mobile-sequence-detail .footerbtn,body.mobile-sequence-detail .sequence-actions{display:none!important}
+  body.mobile-sequence-detail #sequence{max-height:none!important;height:auto!important;overflow:visible!important;padding:0}
+  body.mobile-sequence-detail #sequence .sequence-separator{margin-top:12px}
+  body.mobile-sequence-detail #sequence .step{width:100%;box-sizing:border-box}
+  body.mobile-sequence-detail #sequence .step.mobile-area-target{outline:3px solid #0b8990;outline-offset:2px;background:#e9f8f6!important}
+}</style></head>
 <body><div class="app">
 <aside class="sidebar"><div class="brand">◈ SitePlan</div><nav class="nav">
 <button data-view="overview" onclick="showView('overview')"><span class="nav-icon">▦</span><span>Overview</span></button>
@@ -129,6 +151,6 @@ aside.sidebar .nav .nav-archive{margin-top:auto!important;font-size:14px!importa
 <div class="overlay" id="recipientOverlay" onclick="if(event.target===this)closeRecipientManager()"><section class="modal recipient-modal"><div class="modal-head"><div><h2>Edit email recipients</h2><p class="sub">Choose which subcontractor schedule each contact receives. A contact can have a separate row for each schedule.</p></div><button class="icon-btn close-btn" type="button" onclick="closeRecipientManager()" aria-label="Close">×</button></div><div class="recipient-toolbar"><p id="recipientHelp" class="email-account-help">Recipients are sent an individual email with the assigned schedule PDF.</p><button class="btn" type="button" onclick="importRecipientList()">Import supplied recipient list</button></div><div class="recipient-table-wrap"><div class="recipient-table-head"><span>Recipient</span><span>Email address</span><span>Send this PDF</span><span></span></div><div id="recipientRows"></div></div><button class="btn recipient-add" type="button" onclick="addRecipientDraft()">+ Add recipient</button><section class="cc-manager-section"><div><h3>CC recipients</h3><p>These contacts are available to CC on any email batch.</p></div><div class="recipient-table-head cc-manager-head"><span>Recipient</span><span>Email address</span><span></span></div><div id="ccRecipientRows"></div><button class="btn recipient-add" type="button" onclick="addCcRecipientDraft()">+ Add CC recipient</button></section><p id="recipientStatus" class="email-status" role="status" aria-live="polite"></p><div class="modalactions"><button class="btn" type="button" onclick="closeRecipientManager()">Cancel</button><button class="btn primary" type="button" onclick="saveRecipientManager()">Save recipients</button></div></section></div>
 <div class="overlay" id="housePickerOverlay" onclick="if(event.target===this)closeHousePicker()"><section class="modal house-picker-modal" role="dialog" aria-modal="true" aria-labelledby="housePickerTitle"><div class="modal-head"><div><h2 id="housePickerTitle">Choose house block(s)</h2><p class="sub">Select one or more blocks in the same zone. Click a selected block again to remove it.</p></div><button class="icon-btn close-btn" type="button" onclick="closeHousePicker()" aria-label="Close">×</button></div><p id="housePickerStatus" class="email-account-help" role="status" aria-live="polite">Loading site layout…</p><div id="housePickerMap" class="house-picker-map"></div><div class="modalactions"><button class="btn" type="button" onclick="closeHousePicker()">Done</button></div></section></div>
 <div class="toast" id="toast"></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://unpkg.com/jspdf@4.2.1/dist/jspdf.umd.min.js"></script><script src="https://alcdn.msauth.net/browser/2.35.0/js/msal-browser.min.js"></script><script src="supabase-config.js"></script><script src="mail-config.js"></script><script src="app.js?v=20261111-mobile-overview-v5"></script><script src="site-map-layer.js?v=20261111-mobile-focus-v2"></script><script src="site-map-editor.js?v=20261111-mobile-focus-v2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://unpkg.com/jspdf@4.2.1/dist/jspdf.umd.min.js"></script><script src="https://alcdn.msauth.net/browser/2.35.0/js/msal-browser.min.js"></script><script src="supabase-config.js"></script><script src="mail-config.js"></script><script src="app.js?v=20261112-phone-outlook-sequence-v1"></script><script src="site-map-layer.js?v=20261111-mobile-focus-v2"></script><script src="site-map-editor.js?v=20261111-mobile-focus-v2"></script>
 </body></html>
 
