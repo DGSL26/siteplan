@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="format-detection" content="telephone=no,address=no,email=no,date=no"><title>SitePlan — Knocksedan PH3</title>
-<link rel="stylesheet" href="styles.css?v=20261112-guest-tabs-v2"><style>
+<link rel="stylesheet" href="styles.css?v=20261112-phone-header-v3"><style>
 aside.sidebar .nav button,aside.sidebar .nav button:not(.active){display:flex!important;flex-direction:row!important;align-items:center!important;gap:8px!important;justify-content:flex-start!important}
 button.mobile-sub-back{display:none!important}
 aside.sidebar .nav .nav-icon{display:inline-grid!important;flex:0 0 16px!important;width:16px!important;min-width:16px!important;height:18px!important;margin:0!important;padding:0!important;place-items:center!important;text-align:center!important;line-height:1!important}
@@ -98,11 +98,14 @@ html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html bod
   body input,body select,body textarea{font-size:16px!important}
 }
 @media (max-width:600px), (max-device-width:600px){
-  body .top{height:88px;min-height:88px;padding:0 10px;gap:6px}
-  body .project{gap:9px;flex:1 1 auto;min-width:0}
-  body .company-logo{width:112px;height:50px;object-fit:contain;flex:0 0 auto}
-  body .project strong{flex:1 1 0;min-width:0;font-size:22px;line-height:1.08;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
-  body .topright{flex:0 0 auto}
+  body .top{position:relative;height:88px;min-height:88px;padding:0 10px;gap:6px}
+  body .project{display:grid;grid-template-columns:calc(50vw - 10px) 1px minmax(0,1fr);width:100%;flex:1 1 auto;gap:0;min-width:0;align-items:center}
+  body .company-logo{width:calc(100% - 14px);height:52px;object-fit:contain;object-position:left center;flex:0 1 auto;justify-self:start}
+  body .project-divider{height:48px;justify-self:center}
+  body .project-heading{min-width:0;padding:0 clamp(54px,18vw,70px) 0 8px}
+  body .project .project-kicker{font-size:clamp(8px,2.4vw,10px);letter-spacing:.12em;white-space:nowrap}
+  body .project strong{display:block;flex:none;min-width:0;font-size:clamp(13px,4.2vw,18px);line-height:1.1;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:normal}
+  body .topright{position:absolute;right:10px;top:50%;z-index:2;flex:0 0 auto;transform:translateY(-50%)}
   body .topright>.btn{min-height:40px;padding:7px 9px;font-size:12px}
   body.mobile-sub-detail .mobile-sub-back{display:inline-flex!important;align-items:center;gap:7px;min-height:40px;margin:0 0 10px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;cursor:pointer}
   body.mobile-sub-detail .mobile-sub-back:active{background:#eef5f7}
