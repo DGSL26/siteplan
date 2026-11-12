@@ -517,10 +517,9 @@ body.map-view-active .map-editor-page{display:flex;flex-direction:column;gap:10p
 
 
 @media (min-width: 901px) and (hover: hover) and (pointer: fine){
-  #sequence .sequence-sortable{cursor:grab;user-select:none;position:relative;padding-right:30px}
-  #sequence .sequence-sortable::after{content:'⠿';position:absolute;right:10px;top:50%;transform:translateY(-50%);color:#8a9aaa;font-size:18px;letter-spacing:-3px;pointer-events:none}
-  #sequence .sequence-sortable:active{cursor:grabbing}
-  #sequence .sequence-dragging{opacity:.42;box-shadow:0 0 0 2px #0f766e}
-  #sequence .sequence-drop-before{box-shadow:inset 0 4px #173b5b!important}
-  #sequence .sequence-drop-after{box-shadow:inset 0 -4px #173b5b!important}
+  #sequence .sequence-sortable{position:relative;padding-right:34px;user-select:none}
+  #sequence .sequence-drag-handle{position:absolute;right:9px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:22px;height:28px;color:#8a9aaa;font-size:19px;letter-spacing:-3px;line-height:1;cursor:grab;touch-action:none;z-index:2}
+  #sequence .sequence-drag-handle:hover{color:#173b5b}
+  #sequence .sequence-drag-ghost{opacity:.94;background:#fff;border:1px solid #9aaaba;border-radius:7px;box-shadow:0 8px 20px #10263d35;cursor:grabbing}
+  #sequence .sequence-drop-indicator{display:block!important;flex:none!important;width:100%;height:4px;min-height:4px;margin:2px 0;background:#173b5b;border-radius:4px;box-shadow:0 0 0 1px #fff,0 1px 5px #10263d55;pointer-events:none;z-index:5}
 }
