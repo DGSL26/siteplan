@@ -588,3 +588,7 @@ body.map-view-active .map-editor-page{display:flex;flex-direction:column;gap:10p
 #schedule .schedule-table-scroll > .zone-divider[data-zone="C"]{--zone-accent:#657f96;--zone-wash:#edf1f4;--zone-border:#dce3e8}
 #schedule .schedule-table-scroll > .zone-divider[data-zone="D"]{--zone-accent:#e0a02b;--zone-wash:#f8f1e4;--zone-border:#eee1c7}
 #schedule .schedule-table-scroll > .zone-divider[data-zone="E"]{--zone-accent:#5e9b70;--zone-wash:#eaf3ec;--zone-border:#d9e9dc}
+
+/* On desktop, align the logo/title divider to the gap between the first two schedule panels. */
+@media (min-width:901px){.top .project-divider{margin-left:20px}}
+@media (max-width:900px){.top .project-divider{margin-left:0}}
