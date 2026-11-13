@@ -192,10 +192,26 @@ html body aside.sidebar .nav button>span.nav-label-phone{display:none!important}
   html body.guest-view aside.sidebar nav.nav>button[data-view="map"]{display:flex!important;visibility:visible!important;opacity:1!important;min-width:0!important;flex:1 1 0!important}
   html body.guest-view aside.sidebar nav.nav>button:not([data-view="overview"]):not([data-view="subcontractors"]):not([data-view="map"]){display:none!important}
 }
+</style><style id="phone-map-and-nav-icon-sizing">
+/* Keep the phone's three public navigation tabs visible in both signed-in and guest views. */
+@media (max-width:900px),(max-device-width:1024px),(hover:none) and (pointer:coarse){
+  html body aside.sidebar nav.nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  html body aside.sidebar nav.nav>button[data-view="overview"],
+  html body aside.sidebar nav.nav>button[data-view="subcontractors"],
+  html body aside.sidebar nav.nav>button[data-view="map"]{display:flex!important;visibility:visible!important;opacity:1!important;min-width:0!important}
+  html body aside.sidebar nav.nav>button:not([data-view="overview"]):not([data-view="subcontractors"]):not([data-view="map"]){display:none!important}
+  html body aside.sidebar nav.nav .nav-icon{display:grid!important;flex:0 0 20px!important;width:20px!important;min-width:20px!important;height:20px!important;margin:0!important;place-items:center!important}
+  html body aside.sidebar nav.nav .nav-icon svg{display:block!important;width:20px!important;height:20px!important}
+}
+/* Desktop icons share a consistent compact size; the phone override above enlarges them together. */
+@media (min-width:901px) and (hover:hover){
+  html body aside.sidebar nav.nav .nav-icon{flex:0 0 16px!important;width:16px!important;min-width:16px!important;height:16px!important}
+  html body aside.sidebar nav.nav .nav-icon svg{display:block!important;width:16px!important;height:16px!important}
+}
 </style></head>
 <body><div class="app">
 <aside class="sidebar"><div class="brand">SiteProgram</div><nav class="nav">
-<button data-view="overview" onclick="showView('overview')"><span class="nav-icon">▦</span><span>Overview</span></button>
+<button data-view="overview" onclick="showView('overview')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18M15 3v18M3 15h18"/></svg></span><span>Overview</span></button>
 <button data-view="map" onclick="showView('map')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 8.5 4l7 2.5L21 4v13.5L15.5 20l-7-2.5L3 20z"/><path d="M8.5 4v13.5M15.5 6.5V20"/></svg></span><span class="nav-label-desktop">Site map</span><span class="nav-label-phone">Map</span></button>
 <button class="active" data-view="subcontractors" onclick="showView('subcontractors')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 64 64" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 39a24 24 0 0 1 48 0"/><path d="M27 9h10l-2 30H29z"/><path d="M5 40h54v8H5z"/><path d="m21 48 5 7h12l5-7"/></svg></span><span class="nav-label-desktop">Subcontractors</span><span class="nav-label-phone">Subcontractors</span></button>
 <button data-view="links" onclick="showView('links')"><span class="nav-icon">↗</span><span>Trade links</span></button>
