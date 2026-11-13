@@ -576,3 +576,4 @@ body.map-view-active .map-editor-page{display:flex;flex-direction:column;gap:10p
   body:not(.guest-view) .overview-row{display:flex!important;flex-wrap:wrap}
   body:not(.guest-view) .mobile-email-entry{display:none!important}
 }
+@media(max-width:900px),(max-device-width:1024px),(hover:none) and (pointer:coarse){html body.guest-view #mainGrid .schedhead .mobile-schedule-title .mobile-share-pdf{display:inline-flex!important}}
