@@ -155,13 +155,13 @@ html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html bod
 /* Phone-only navigation and header refresh. Desktop rules remain untouched. */
 html body aside.sidebar .nav button>span.nav-label-phone{display:none!important}
 @media (max-width:600px),(max-device-width:600px){
-  body .top{position:sticky!important;top:0!important;z-index:30!important;box-sizing:border-box;height:88px!important;min-height:88px!important;background:#fff!important;border-bottom:1px solid #dfe6ed!important;color:#10263d!important}
+  body .top{position:sticky!important;top:0!important;z-index:30!important;box-sizing:border-box;height:88px!important;min-height:88px!important;background:#edf3f6!important;border-bottom:1px solid #dfe6ed!important;color:#10263d!important}
   html body .top .project .project-heading #projectName{color:#10263d!important}
   html body .top .project .project-kicker{color:#66768a!important}
   body .project-divider{background:#d3dce5!important}
   body .company-logo{box-sizing:border-box;padding:0!important;background:transparent!important;border-radius:0!important;box-shadow:none!important}
   body .topright{display:none!important}
-  body .sidebar{position:fixed!important;top:auto!important;right:0!important;bottom:0!important;left:0!important;z-index:50!important;box-sizing:border-box;width:100%!important;height:calc(64px + env(safe-area-inset-bottom))!important;min-height:calc(64px + env(safe-area-inset-bottom))!important;padding:3px 14px env(safe-area-inset-bottom)!important;background:#fff!important;border-top:1px solid #dfe6ed!important;box-shadow:0 -3px 14px rgba(16,38,61,.06)!important}
+  body .sidebar{position:fixed!important;top:auto!important;right:0!important;bottom:0!important;left:0!important;z-index:50!important;box-sizing:border-box;width:100%!important;height:calc(64px + env(safe-area-inset-bottom))!important;min-height:calc(64px + env(safe-area-inset-bottom))!important;padding:3px 14px env(safe-area-inset-bottom)!important;background:#edf3f6!important;border-top:1px solid #dfe6ed!important;box-shadow:0 -3px 14px rgba(16,38,61,.06)!important}
   body .nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch!important;gap:4px!important;width:100%!important;height:60px!important;min-height:60px!important;flex:0 0 60px!important;margin:0!important;overflow:visible!important}
   body .nav button,html body.guest-view aside.sidebar nav.nav button{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;min-width:0!important;min-height:56px!important;margin:0!important;padding:5px 2px 3px!important;border:0!important;border-radius:0!important;background:transparent!important;color:#66768a!important;font-size:11px!important;line-height:1.15!important;white-space:nowrap!important;box-shadow:none!important}
   body .nav button.active{background:transparent!important;color:#078a91!important;font-weight:700!important}
@@ -173,6 +173,13 @@ html body aside.sidebar .nav button>span.nav-label-phone{display:none!important}
   body .nav .nav-icon svg{width:20px!important;height:20px!important}
   body .nav button>span:last-child{display:block!important;max-width:100%;overflow:hidden;text-overflow:ellipsis}
   html body aside.sidebar .nav button>span.nav-label-phone{display:block!important}
+  body .summary-cards>div{position:relative;overflow:hidden;padding-top:16px!important}
+  body .summary-cards>div::before{position:absolute;top:0;left:0;right:0;height:4px;border-radius:9px 9px 0 0;content:""}
+  body .summary-cards>div:nth-child(1)::before{background:#0f9396}
+  body .summary-cards>div:nth-child(2)::before{background:#193a60}
+  body .summary-cards>div:nth-child(3)::before{background:#4a90c2}
+  body .summary-cards>div:nth-child(4)::before{background:#d39a37}
+  body .summary-cards>div:last-child{display:none!important}
   body main.content{padding-bottom:calc(82px + env(safe-area-inset-bottom))!important}
   body.map-view-active .content{box-sizing:border-box;height:calc(100dvh - 88px - 68px - env(safe-area-inset-bottom))!important;min-height:0!important;padding:6px!important;overflow:hidden!important}
   body.map-view-active main.content{padding-bottom:6px!important}
@@ -185,7 +192,7 @@ html body aside.sidebar .nav button>span.nav-label-phone{display:none!important}
 <aside class="sidebar"><div class="brand">SiteProgram</div><nav class="nav">
 <button data-view="overview" onclick="showView('overview')"><span class="nav-icon">▦</span><span>Overview</span></button>
 <button data-view="map" onclick="showView('map')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 8.5 4l7 2.5L21 4v13.5L15.5 20l-7-2.5L3 20z"/><path d="M8.5 4v13.5M15.5 6.5V20"/></svg></span><span class="nav-label-desktop">Site map</span><span class="nav-label-phone">Map</span></button>
-<button class="active" data-view="subcontractors" onclick="showView('subcontractors')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0v2H4z"/><path d="M12 5v8M3 15h18M7 19h10l2 2H5z"/></svg></span><span class="nav-label-desktop">Subcontractors</span><span class="nav-label-phone">Trades</span></button>
+<button class="active" data-view="subcontractors" onclick="showView('subcontractors')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0v2H4z"/><path d="M12 5v8M3 15h18M7 19h10l2 2H5z"/></svg></span><span class="nav-label-desktop">Subcontractors</span><span class="nav-label-phone">Subcontractors</span></button>
 <button data-view="links" onclick="showView('links')"><span class="nav-icon">↗</span><span>Trade links</span></button>
 <button data-view="friday" onclick="showView('friday')"><span class="nav-icon">▤</span><span>Email schedules</span></button>
 <button class="nav-settings" data-view="settings" onclick="showView('settings')"><span class="nav-icon">⚙</span><span>Settings</span></button>
