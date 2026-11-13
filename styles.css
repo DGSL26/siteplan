@@ -470,8 +470,6 @@ body.map-view-active .map-editor-page{display:flex;flex-direction:column;gap:10p
   body .area-outlook-row>b{grid-column:1/-1;font-size:13px}
   body .area-outlook-row>span,body .area-outlook-row>strong{font-size:11px;line-height:1.35;overflow-wrap:anywhere}
   body .area-outlook-row>span:nth-of-type(1)::before{content:'Tasks complete: ';color:var(--muted)}
-  body .area-outlook-row>span:nth-of-type(2)::before{content:'Original: ';color:var(--muted)}
-  body .area-outlook-row>span:nth-of-type(3)::before{content:'Forecast: ';color:var(--muted)}
   body .area-outlook-row>strong::before{content:'Variance: ';color:var(--muted);font-weight:400}
   body .email-page-head{align-items:stretch;gap:12px;padding:2px 0 12px}
   body .email-page-head h1{font-size:21px}

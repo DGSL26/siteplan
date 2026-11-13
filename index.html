@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="format-detection" content="telephone=no,address=no,email=no,date=no"><title>SiteProgram — Knocksedan PH3</title>
-<link rel="stylesheet" href="styles.css?v=20261113-pred-picker-v3"><style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="format-detection" content="telephone=no,address=no,email=no,date=no"><title>SiteProgram — Knocksedan PH3</title>
+<link rel="stylesheet" href="styles.css?v=20261113-phone-safearea-v1"><style>
 aside.sidebar .nav button,aside.sidebar .nav button:not(.active){display:flex!important;flex-direction:row!important;align-items:center!important;gap:8px!important;justify-content:flex-start!important}
 button.mobile-sub-back{display:none!important}
 aside.sidebar .nav .nav-icon{display:inline-grid!important;flex:0 0 16px!important;width:16px!important;min-width:16px!important;height:18px!important;margin:0!important;padding:0!important;place-items:center!important;text-align:center!important;line-height:1!important}
@@ -159,10 +159,10 @@ html body aside.sidebar .nav button>span.nav-label-phone{display:none!important}
   html body .top .project .project-heading #projectName{color:#fff!important}
   html body .top .project .project-kicker{color:#c5d3df!important}
   body .project-divider{background:#8092a4!important}
-  body .company-logo{box-sizing:border-box;padding:4px;background:#fff;border-radius:5px}
+  body .company-logo{box-sizing:border-box;padding:0!important;background:transparent!important;border-radius:0!important;box-shadow:none!important}
   body .topright{display:none!important}
   body .sidebar{position:fixed!important;top:auto!important;right:0!important;bottom:0!important;left:0!important;z-index:50!important;box-sizing:border-box;width:100%!important;height:calc(68px + env(safe-area-inset-bottom))!important;min-height:calc(68px + env(safe-area-inset-bottom))!important;padding:7px 10px calc(7px + env(safe-area-inset-bottom))!important;background:#10263d!important;border-top:1px solid #2b435a!important}
-  body .nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch!important;gap:6px!important;width:100%!important;height:100%!important;margin:0!important;overflow:visible!important}
+  body .nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch!important;gap:6px!important;width:100%!important;height:auto!important;min-height:48px!important;flex:1 1 auto!important;margin:0!important;overflow:visible!important}
   body .nav button,html body.guest-view aside.sidebar nav.nav button{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;min-width:0!important;min-height:48px!important;margin:0!important;padding:4px 2px!important;border-radius:9px!important;font-size:11px!important;line-height:1.15!important;white-space:nowrap!important}
   body .nav button:not([data-view="overview"]):not([data-view="subcontractors"]):not([data-view="map"]){display:none!important}
   html body.guest-view aside.sidebar nav.nav button:not([data-view="overview"]):not([data-view="subcontractors"]):not([data-view="map"]){display:none!important}
