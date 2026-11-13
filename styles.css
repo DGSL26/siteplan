@@ -601,3 +601,24 @@ body.map-view-active .map-editor-page{display:flex;flex-direction:column;gap:10p
 /* Phone map uses direct touch gestures; keep the desktop controls unchanged. */
 @media (max-width:700px){.site-map-controls{display:none!important}}
 
+/* On phones, let the map canvas fill the space between the site header and bottom tabs. */
+@media (max-width:600px),(max-device-width:600px){
+  html body.map-view-active main.content{
+    display:flex!important;flex:1 1 auto!important;flex-direction:column!important;
+    min-height:0!important;overflow:hidden!important;
+  }
+  html body.map-view-active main.content #extraView:not(.hidden){
+    display:flex!important;flex:1 1 0!important;flex-direction:column!important;
+    width:100%!important;height:100%!important;min-height:0!important;
+    padding:0!important;overflow:hidden!important;
+  }
+  html body.map-view-active .site-map-fullscreen{
+    display:flex!important;flex:1 1 auto!important;flex-direction:column!important;
+    width:100%!important;height:100%!important;min-height:0!important;overflow:hidden!important;
+  }
+  html body.map-view-active .site-map-canvas-stage{
+    flex:1 1 auto!important;width:100%!important;height:100%!important;
+    min-height:0!important;overflow:hidden!important;
+  }
+}
+
