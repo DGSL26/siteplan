@@ -10,7 +10,7 @@ aside.sidebar .nav button>span:last-child{display:inline-block!important;flex:0 
 aside.sidebar .nav .nav-settings{margin-top:auto!important;font-size:14px!important}
 html body.guest-view aside.sidebar nav.nav button:not([data-view="overview"]):not([data-view="subcontractors"]){display:none!important}
 html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html body.guest-view aside.sidebar nav.nav button[data-view="subcontractors"]{display:flex!important}
-@media (max-width:900px), (max-device-width:1024px), (hover:none) and (pointer:coarse){html body.guest-view aside.sidebar nav.nav button:not([data-view="overview"]):not([data-view="subcontractors"]){display:none!important}html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html body.guest-view aside.sidebar nav.nav button[data-view="subcontractors"]{display:flex!important;flex:1 1 0!important}html body .mobile-email-entry{display:none!important}}
+@media (max-width:900px), (max-device-width:1024px), (hover:none) and (pointer:coarse){html body.guest-view aside.sidebar nav.nav button:not([data-view="overview"]):not([data-view="subcontractors"]):not([data-view="map"]){display:none!important}html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html body.guest-view aside.sidebar nav.nav button[data-view="subcontractors"],html body.guest-view aside.sidebar nav.nav button[data-view="map"]{display:flex!important;flex:1 1 0!important}html body .mobile-email-entry{display:none!important}}
 #sequence .sequence-separator{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important}
 #sequence .sequence-actions{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-end!important;gap:0!important;margin:0!important;padding:0!important;white-space:nowrap!important}
 #sequence .sequence-actions>button{box-sizing:border-box!important;display:inline-grid!important;flex:0 0 28px!important;place-items:center!important;width:28px!important;min-width:28px!important;height:28px!important;min-height:28px!important;margin:0 5px 0 0!important;padding:0!important;border:1px solid #d5dee7!important;border-radius:6px!important;background:#fff!important;color:#425a70!important;line-height:1!important;font-size:15px!important}
@@ -30,7 +30,7 @@ html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html bod
   body .brand{display:none}
   body .nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible;margin:0;min-height:0}
   html body.guest-view aside.sidebar nav.nav button{display:none!important;min-width:0}
-  html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html body.guest-view aside.sidebar nav.nav button[data-view="subcontractors"]{display:flex!important;align-items:center!important;justify-content:center!important;min-height:44px;padding:9px 8px;white-space:nowrap;font-size:14px}
+  html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html body.guest-view aside.sidebar nav.nav button[data-view="subcontractors"],html body.guest-view aside.sidebar nav.nav button[data-view="map"]{display:flex!important;align-items:center!important;justify-content:center!important;min-height:44px;padding:9px 8px;white-space:nowrap;font-size:14px}
   body .nav button .nav-icon{display:inline-grid!important;flex:0 0 16px;width:16px;min-width:16px;place-items:center;margin:0 7px 0 0}
   body main.content{order:3;margin:0;width:100%;height:auto;min-height:0;padding:12px 10px 24px;overflow:visible;display:block}
   body #mainGrid:not(.hidden){display:block;height:auto;overflow:visible}
@@ -155,15 +155,17 @@ html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html bod
 /* Phone-only navigation and header refresh. Desktop rules remain untouched. */
 html body aside.sidebar .nav button>span.nav-label-phone{display:none!important}
 @media (max-width:600px),(max-device-width:600px){
-  body .top{position:sticky!important;top:0!important;z-index:30!important;box-sizing:border-box;height:88px!important;min-height:88px!important;background:#10263d!important;border-bottom:1px solid #2b435a!important;color:#fff!important}
-  html body .top .project .project-heading #projectName{color:#fff!important}
-  html body .top .project .project-kicker{color:#c5d3df!important}
-  body .project-divider{background:#8092a4!important}
+  body .top{position:sticky!important;top:0!important;z-index:30!important;box-sizing:border-box;height:88px!important;min-height:88px!important;background:#fff!important;border-bottom:1px solid #dfe6ed!important;color:#10263d!important}
+  html body .top .project .project-heading #projectName{color:#10263d!important}
+  html body .top .project .project-kicker{color:#66768a!important}
+  body .project-divider{background:#d3dce5!important}
   body .company-logo{box-sizing:border-box;padding:0!important;background:transparent!important;border-radius:0!important;box-shadow:none!important}
   body .topright{display:none!important}
-  body .sidebar{position:fixed!important;top:auto!important;right:0!important;bottom:0!important;left:0!important;z-index:50!important;box-sizing:border-box;width:100%!important;height:calc(68px + env(safe-area-inset-bottom))!important;min-height:calc(68px + env(safe-area-inset-bottom))!important;padding:7px 10px calc(7px + env(safe-area-inset-bottom))!important;background:#10263d!important;border-top:1px solid #2b435a!important}
-  body .nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch!important;gap:6px!important;width:100%!important;height:auto!important;min-height:48px!important;flex:1 1 auto!important;margin:0!important;overflow:visible!important}
-  body .nav button,html body.guest-view aside.sidebar nav.nav button{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;min-width:0!important;min-height:48px!important;margin:0!important;padding:4px 2px!important;border-radius:9px!important;font-size:11px!important;line-height:1.15!important;white-space:nowrap!important}
+  body .sidebar{position:fixed!important;top:auto!important;right:0!important;bottom:0!important;left:0!important;z-index:50!important;box-sizing:border-box;width:100%!important;height:calc(64px + env(safe-area-inset-bottom))!important;min-height:calc(64px + env(safe-area-inset-bottom))!important;padding:3px 14px env(safe-area-inset-bottom)!important;background:#fff!important;border-top:1px solid #dfe6ed!important;box-shadow:0 -3px 14px rgba(16,38,61,.06)!important}
+  body .nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch!important;gap:4px!important;width:100%!important;height:60px!important;min-height:60px!important;flex:0 0 60px!important;margin:0!important;overflow:visible!important}
+  body .nav button,html body.guest-view aside.sidebar nav.nav button{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;min-width:0!important;min-height:56px!important;margin:0!important;padding:5px 2px 3px!important;border:0!important;border-radius:0!important;background:transparent!important;color:#66768a!important;font-size:11px!important;line-height:1.15!important;white-space:nowrap!important;box-shadow:none!important}
+  body .nav button.active{background:transparent!important;color:#078a91!important;font-weight:700!important}
+  body .nav button.active::before{position:absolute;top:0;left:25%;right:25%;height:3px;border-radius:0 0 3px 3px;background:#078a91;content:""}
   body .nav button:not([data-view="overview"]):not([data-view="subcontractors"]):not([data-view="map"]){display:none!important}
   html body.guest-view aside.sidebar nav.nav button:not([data-view="overview"]):not([data-view="subcontractors"]):not([data-view="map"]){display:none!important}
   body .nav button[data-view="map"],html body.guest-view aside.sidebar nav.nav button[data-view="map"]{display:flex!important}
@@ -183,7 +185,7 @@ html body aside.sidebar .nav button>span.nav-label-phone{display:none!important}
 <aside class="sidebar"><div class="brand">SiteProgram</div><nav class="nav">
 <button data-view="overview" onclick="showView('overview')"><span class="nav-icon">▦</span><span>Overview</span></button>
 <button data-view="map" onclick="showView('map')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 8.5 4l7 2.5L21 4v13.5L15.5 20l-7-2.5L3 20z"/><path d="M8.5 4v13.5M15.5 6.5V20"/></svg></span><span class="nav-label-desktop">Site map</span><span class="nav-label-phone">Map</span></button>
-<button class="active" data-view="subcontractors" onclick="showView('subcontractors')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0v2H4z"/><path d="M12 5v8M3 15h18M7 19h10l2 2H5z"/></svg></span><span>Subcontractors</span></button>
+<button class="active" data-view="subcontractors" onclick="showView('subcontractors')"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0v2H4z"/><path d="M12 5v8M3 15h18M7 19h10l2 2H5z"/></svg></span><span class="nav-label-desktop">Subcontractors</span><span class="nav-label-phone">Trades</span></button>
 <button data-view="links" onclick="showView('links')"><span class="nav-icon">↗</span><span>Trade links</span></button>
 <button data-view="friday" onclick="showView('friday')"><span class="nav-icon">▤</span><span>Email schedules</span></button>
 <button class="nav-settings" data-view="settings" onclick="showView('settings')"><span class="nav-icon">⚙</span><span>Settings</span></button>
