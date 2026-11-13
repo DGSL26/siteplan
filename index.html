@@ -99,12 +99,12 @@ html body.guest-view aside.sidebar nav.nav button[data-view="overview"],html bod
 }
 @media (max-width:600px), (max-device-width:600px){
   body .top{position:relative;height:88px;min-height:88px;padding:0 10px;gap:6px}
-  body .project{display:grid;grid-template-columns:minmax(0,44vw) 1px minmax(0,1fr);width:100%;flex:1 1 auto;gap:0;min-width:0;align-items:center}
+  body .project{display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);width:100%;flex:1 1 auto;gap:0;min-width:0;align-items:center}
   body .company-logo{width:calc(100% - 8px);height:52px;object-fit:contain;object-position:left center;flex:0 1 auto;justify-self:start}
   body .project-divider{height:48px;justify-self:center}
-  html body .top .project-heading{position:relative!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;width:auto!important;min-width:0!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0 clamp(50px,14vw,56px) 0 8px!important;overflow:visible!important;visibility:visible!important;opacity:1!important;color:#10263d!important;z-index:3}
+  html body .top .project-heading{position:relative!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;width:auto!important;min-width:0!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0 0 0 8px!important;overflow:visible!important;visibility:visible!important;opacity:1!important;color:#10263d!important;z-index:3}
   html body .top .project .project-kicker{display:block!important;max-width:100%;color:#65758b!important;font-size:clamp(8px,2.4vw,10px)!important;letter-spacing:.1em;line-height:1.2;white-space:nowrap!important;visibility:visible!important;opacity:1!important}
-  html body .top .project #projectName{display:block!important;flex:none!important;width:auto!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:0!important;color:#10263d!important;font-size:clamp(15px,4.5vw,18px)!important;font-weight:750!important;line-height:1.12!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:normal!important;visibility:visible!important;opacity:1!important}
+  html body .top .project #projectName{display:block!important;flex:none!important;width:auto!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:0!important;color:#10263d!important;font-size:clamp(16px,5vw,20px)!important;font-weight:750!important;line-height:1.12!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:normal!important;visibility:visible!important;opacity:1!important}
   body .topright{position:absolute;right:10px;top:50%;z-index:2;flex:0 0 auto;transform:translateY(-50%)}
   body .topright>.btn{min-height:40px;padding:7px 9px;font-size:12px}
   body.mobile-sub-detail .mobile-sub-back{display:inline-flex!important;align-items:center;gap:7px;min-height:40px;margin:0 0 10px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-family:inherit;font-size:14px;font-weight:600;line-height:1.2;cursor:pointer}
@@ -173,12 +173,9 @@ html body aside.sidebar .nav button>span.nav-label-phone{display:none!important}
   body .nav .nav-icon svg{width:20px!important;height:20px!important}
   body .nav button>span:last-child{display:block!important;max-width:100%;overflow:hidden;text-overflow:ellipsis}
   html body aside.sidebar .nav button>span.nav-label-phone{display:block!important}
-  body .summary-cards>div{position:relative;overflow:hidden;padding-top:16px!important}
-  body .summary-cards>div::before{position:absolute;top:0;left:0;right:0;height:4px;border-radius:9px 9px 0 0;content:""}
-  body .summary-cards>div:nth-child(1)::before{background:#0f9396}
-  body .summary-cards>div:nth-child(2)::before{background:#193a60}
-  body .summary-cards>div:nth-child(3)::before{background:#4a90c2}
-  body .summary-cards>div:nth-child(4)::before{background:#d39a37}
+  html body aside.sidebar .nav button>span.nav-label-desktop{display:none!important}
+  body .summary-cards>div{padding-top:13px!important}
+  body .summary-cards>div::before{display:none!important;content:none!important}
   body .summary-cards>div:last-child{display:none!important}
   body main.content{padding-bottom:calc(82px + env(safe-area-inset-bottom))!important}
   body.map-view-active .content{box-sizing:border-box;height:calc(100dvh - 88px - 68px - env(safe-area-inset-bottom))!important;min-height:0!important;padding:6px!important;overflow:hidden!important}
